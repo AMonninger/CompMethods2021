@@ -1,7 +1,7 @@
 % -*- mode: LaTeX; TeX-PDF-mode: t; -*-
-\input{./econtexRoot}\documentclass[\econtexRoot/ProjectABM]{subfiles}
+\input{./econtexRoot}\documentclass[\econtexRoot/BufferStockTheory]{subfiles}
 \input{./econtexRoot}
-\externaldocument{\LaTeXGenerated/ProjectABM} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+\externaldocument{\LaTeXGenerated/BufferStockTheory} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
 
 \begin{document}
 
@@ -9,8 +9,7 @@
 
 \hypertarget{Appendices}{}
 \appendix \centerline{\LARGE Appendices}\vspace{0.2in}
-\subfile{\ApndxDir/ApndxQuestionnaire.tex}
-%\subfile{\ApndxDir/ApndxLiqConstr}
+\subfile{\ApndxDir/ApndxQuestionnaire}
 %\subfile{\ApndxDir/ApndxConcaveCFunc}
 %\subfile{\ApndxDir/ApndxEuclidian}
 %\subfile{\ApndxDir/ApndxCGroIsPGro}

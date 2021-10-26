@@ -1,0 +1,65 @@
+% -*- mode: LaTeX; TeX-PDF-mode: t; -*-
+\input{./econtexRoot}\documentclass[\econtexRoot/ProjectABM]{subfiles}
+\input{./econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
+\onlyinsubfile{\externaldocument{\LaTeXGenerated/ProjectABM}} % Get xrefs -- esp to appendix -- from main file; only works properly if main file has already been compiled;
+
+\begin{document}
+\let\TableWidth\relax
+{\newlength\TableWidth}
+
+\section{Bundesbank Online Panel Questionnaire}\label{sec:ApndxQuestionnaire}
+
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q1_full.PNG}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q2_full.PNG}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q3_full.PNG}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q4_full.PNG}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q5_full.PNG}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q6_full.PNG}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q7_full.PNG}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[width = \linewidth]{\FigDir/Q8_full.PNG}
+\end{figure}
+
+\onlyinsubfile{\pagebreak\input{\LaTeXInputs/bibliography_blend}}
+
+\end{document}\endinput
+
+% Local Variables:
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  (plain-tex-mode latex-mode doctex-mode ams-tex-mode texinfo-mode)  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("Biber" "biber %s" TeX-run-Biber nil  t  :help "Run Biber") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "%(bibtex) LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% eval: (setq TeX-command-list  (remove '("BibTeX" "bibtex LaTeX/%s"    TeX-run-BibTeX nil t :help "Run BibTeX") TeX-command-list))
+% tex-bibtex-command: "bibtex ../LaTeX/*"
+% TeX-PDF-mode: t
+% TeX-file-line-error: t
+% TeX-debug-warnings: t
+% LaTeX-command-style: (("" "%(PDF)%(latex) %(file-line-error) %(extraopts) -output-directory=../LaTeX %S%(PDFout)"))
+% TeX-source-correlate-mode: t
+% TeX-parse-self: t
+% eval: (cond ((string-equal system-type "darwin") (progn (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline -b %n ../LaTeX/%o %b"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-list '(("Evince" "evince --page-index=%(outpage) ../LaTeX/%o"))))))
+% eval: (cond ((string-equal system-type "gnu/linux") (progn (setq TeX-view-program-selection '((output-pdf "Evince"))))))
+% TeX-parse-all-errors: t
+% End:

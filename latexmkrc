@@ -7,7 +7,7 @@ $pdf_mode = 1;
 $out_dir = './LaTeX';
 $rc_report = 1;
 $pdflatex="pdflatex -interaction=nonstopmode %O %S";
-@default_files = ('BufferStockTheory.tex','BufferStockTheory-NoAppendix.tex');
+@default_files = ('ProjectABM.tex','ProjectABM-NoAppendix.tex');
 $aux_out_dir_report = 1;
 $silent  = 0;
 warn "PATH = '$ENV{PATH}'\n";
