@@ -41,7 +41,7 @@
 \maketitle
 \hypertarget{abstract}{}
 \begin{abstract}
-This paper uses information from the Bundesbank Online Pilot Survey on Consumer Expectations (BOP) wave 8 and compares various mechanisms why households do not hold stocks, what prevents them from adjusting their portfolio, and what makes them overcome them. My results are \textcolor{orange}{results}.
+What prevents households from investing in financial assets and what makes them overcome these factors? This paper asks respondents directly about the reasons for their decisions during the Covid-19 pandemic. Using the Bundesbank Online Pilot Survey on Consumer Expectations, I find that lack of information and interest are the biggest determinants for non-participation, while risk and time constraints prevents households to rebalance. Buyers invest either because of expected increasing asset prices or due to a pre-existing savingsplan. Additionally, I find that households who have higher expectations of property prices as well as inflation are less likely to buy.
 \end{abstract}
 
 
@@ -305,79 +305,9 @@ This section summarizes statistics for each type and explores the underlying fac
 First of all, table \ref{tab:sum_types} reports summary statistics for the different types.% -- households who never participated, who kept it unchanged but held stocks before, who bought only, sold only or bought and sold. 
 The first two columns show that around half of all respondents did not hold any financial assets \textcolor{orange}{which is slightly less than in the PHF} and a quarter did have some in their portfolio prior March 2020, but did neither buy or sell any financial assets. Hence, one quarter or 497 individuals changed their portfolio between March and August 2020. \textcolor{orange}{\cite{bonaparte_et_al_2012adjustment} calculate for the US using the PSID that almost 50\% of all stock holders adjusted their portfolio within a two year span. Hence, this share has already adjusted their portfolio within 6 months. Arguably, 2020 was not a regular year and the turmoils on the stock market increased awareness to adjust the portfolio. GERMANY?! EUROPE?! COMPARISON} Interestingly, about 18 \% report, they only bought additional assets (column 3) where fonds and bonds were the most preferred asset types. Around 6 \% sold some assets, and 4.4\% bought and sold in the same time period.
 
-\begin{table}[]
-	\caption{Summary Statistics of 5 types}
-	\label{tab:sum_types}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{ll|ccccccccccc}
-				&  &  & \begin{tabular}[c]{@{}c@{}}no participation\\ \\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}no adjustment\\ \\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}bought\\ (only)\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}sold\\ (only)\\ (IV)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}bought\\ and sold\\ (V)\end{tabular} &  \\ \hline
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Total & \% &  & 50.1 &  & 25.4 &  & 18.0 &  & 2.1 &  & 4.4 &  \\
-				& \euro &  &  &  &  &  & 8,600 &  & -17,300 &  & 3,200 &  \\
-				& sd &  &  &  &  &  & (20,900) &  & (28,600) &  & (16,900) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Fonds & \% &  &  &  &  &  & 70.1 &  & 60.5 &  & 61.1 &  \\
-				& \euro &  &  &  &  &  & 3,400 &  & -9,800 &  & 200 &  \\
-				& sd &  &  &  &  &  & (10,600) &  & (17,500) &  & (5,100) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Bonds & \% &  &  &  &  &  & 43.7 &  & 37.2 &  & 84.4 &  \\
-				& \euro &  &  &  &  &  & 4,100 &  & -4,600 &  & 3,500 &  \\
-				& sd &  &  &  &  &  & (12,600) &  & (16,100) &  & (16,900) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Stocks & \% &  &  &  &  &  & 7.7 &  & 9.3 &  & 14.4 &  \\
-				& \euro &  &  &  &  &  & 200 &  & -100 &  & -200 &  \\
-				& sd &  &  &  &  &  & (1,600) &  & (500) &  & (2,900) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Other & \% &  &  &  &  &  & 13.7 &  & 18.6 &  & 25.6 &  \\
-				& \euro &  &  &  &  &  & 800 &  & -2,800 &  & -400 &  \\
-				& sd &  &  &  &  &  & (4,900) &  & (10,800) &  & (4,900) &  \\ \hline
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				n &  &  & 1,013 &  & 513 &  & 364 &  & 43 &  & 90 & \\ \hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Summary statistics of 5 types in the sample. This table shows how many of each group changed their portfolio in total and by asset type. Underneath the percentage of the population, the euro amount of the portfolio difference is reported with standard deviation in parentheses.
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/summary_types}
 
-\begin{table}[]
-	\caption{Summary Statistics of 5 types (weighted)}
-	\label{tab:sum_types_weighted}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{ll|ccccccccccc}
-				&  &  & \begin{tabular}[c]{@{}c@{}}no participation\\ \\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}no adjustment\\ \\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}bought\\ (only)\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}sold\\ (only)\\ (IV)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}bought\\ and sold\\ (V)\end{tabular} &  \\ \hline
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Total & \% &  & 55.1 &  & 23.0 &  & 16.1 &  & 1.9 &  & 3.9 &  \\
-				& \euro &  &  &  &  &  & 6,100 &  & -11,800 &  & 1,200 &  \\
-				& sd &  &  &  &  &  & (15,400) &  & (22,500) &  & (11,500) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Fonds & \% &  &  &  &  &  & 71.9 &  & 53.4 &  & 59.2 &  \\
-				& \euro &  &  &  &  &  & 2,700 &  & -5,700 &  &  0 &  \\
-				& sd &  &  &  &  &  & (8,600) &  & (11,900) &  & (4,500) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Bonds & \% &  &  &  &  &  & 44.3 &  & 41.9 &  & 81.4 &  \\
-				& \euro &  &  &  &  &  & 2,400 &  & -3,300 &  & 1,700 &  \\
-				& sd &  &  &  &  &  & (8,300) &  & (12,200) &  & (11,400) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Stocks & \% &  &  &  &  &  & 7.0 &  & 12.5 &  & 13.5 &  \\
-				& \euro &  &  &  &  &  & 100 &  & -100 &  & -300 &  \\
-				& sd &  &  &  &  &  & (1,000) &  & (400) &  & (2,400) &  \\
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				Other & \% &  &  &  &  &  & 14.3 &  & 23.6 &  & 32.1 &  \\
-				& \euro &  &  &  &  &  & 900 &  & -2,700 &  & -300 &  \\
-				& sd &  &  &  &  &  & (5,600) &  & (10,000) &  & (3,500) &  \\ \hline
-				&  &  &  &  &  &  &  &  &  &  &  &  \\
-				n &  &  & 1,013 &  & 513 &  & 364 &  & 43 &  & 90 &  \\ \hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Summary statistics of 5 types in the sample. This table shows how many of each group changed their portfolio in total and by asset type. Underneath the percentage of the population, the euro amount of the portfolio difference is reported with standard deviation in parentheses.
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/summary_types_weighted}
 
 \paragraph{Heterogeneity in who bought/sold/unchanged}
 Table \ref{tab:sum_types_demo} reports a demographic breakdown for each type and confirms multiple results from the literature. Characteristics such as college degree, male, higher income and home ownership increase not only the likelihood to hold financial assets, but to trade as well. Interestingly, younger households eg the cohort below 30 years, were more likely to buy than older. \textcolor{orange}{This is in line with reports such as Flossbach and Storch... documenting an increase in stock ownership among the young.}
@@ -388,54 +318,8 @@ Table \ref{tab:sum_types_demo} reports a demographic breakdown for each type and
 % + younger
 
 %\cite{bonaparte_et_al_2012adjustment}: 'The first moment is the adjustment rate for shareholders of 46.7\% biannually...It should be noted that the 46.7\% biannual adjustment rate is not convertible into a 23.5\% annual adjustment rate, unless totally different households undertake stock adjustment in the two years. It might be, for example, that the same set of households adjust in both years, implying that the annual adjustment rate from PSID should also be 46.7\%. We take this time aggregation into account in our estimation.' \textbf{Adjustment rate}
-\begin{table}[]
-	\caption{Summary Statistics of 5 types}
-	\label{tab:sum_types_demo}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{ll|cccccccccccc}
-				&  &  & \begin{tabular}[c]{@{}c@{}}total\\ \\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}no participation\\ \\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}no adjustment\\ \\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}bought\\ (only)\\ (IV)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}sold\\ (only)\\ (V)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}bought\\ and sold\\ (VI)\end{tabular} \\ \hline
-				&  &  &  &  &  &  &  &  &  &  &  &  &  \\
-				\multicolumn{2}{l|}{Female} &  & 41.5 &  & 47.7 &  & 43.7 &  & 28.0 &  & 30.2 &  & 20.0 \\
-				\multicolumn{2}{l|}{} &  &  &  &  &  &  &  &  &  &  &  &  \\
-				\multicolumn{2}{l|}{Age} &  &  &  &  &  &  &  &  &  &  &  &  \\
-				& \textless{}30 &  & 9.0 &  & 10.2 &  & 4.1 &  & 12.1 &  & 7.0 &  & 12.2 \\
-				& 31-40 &  & 11.3 &  & 12.6 &  & 9.9 &  & 10.4 &  & 9.3 &  & 8.9 \\
-				& 41-50 &  & 16.6 &  & 15.4 &  & 15.2 &  & 19.5 &  & 16.3 &  & 26.7 \\
-				& 51-60 &  & 18.9 &  & 18.5 &  & 19.7 &  & 20.6 &  & 14.0 &  & 15.6 \\
-				& 60+ &  & 41.4 &  & 40.3 &  & 48.5 &  & 35.2 &  & 46.5 &  & 35.6 \\
-				&  &  &  &  &  &  &  &  &  &  &  &  &  \\
-				\multicolumn{2}{l|}{HH Size} &  &  &  &  &  &  &  &  &  &  &  &  \\
-				& 1 &  & 24.7 &  & 25.7 &  & 22.8 &  & 23.4 &  & 34.9 &  & 24.4 \\
-				& 2 &  & 45.3 &  & 45.0 &  & 48.9 &  & 40.9 &  & 39.5 &  & 47.8 \\
-				& 3 &  & 12.8 &  & 12.4 &  & 10.7 &  & 16.2 &  & 9.3 &  & 16.7 \\
-				& 4 &  & 12.5 &  & 12.1 &  & 12.3 &  & 14.6 &  & 9.3 &  & 10.0 \\
-				& 5+ &  & 4.6 &  & 4.5 &  & 5.1 &  & 4.7 &  & 7.0 &  & 1.1 \\
-				&  &  &  &  &  &  &  &  &  &  &  &  &  \\
-				\multicolumn{2}{l|}{College} &  & 29.1 &  & 24.0 &  & 32.0 &  & 35.7 &  & 37.2 &  & 38.9 \\
-				&  &  &  &  &  &  &  &  &  &  &  &  &  \\
-				\multicolumn{2}{l|}{Employment} &  &  &  &  &  &  &  &  &  &  &  &  \\
-				& full-time &  & 42.7 &  & 38.6 &  & 38.4 &  & 55.5 &  & 51.2 &  & 56.7 \\
-				& part-time &  & 11.7 &  & 13.7 &  & 11.3 &  & 8.0 &  & 4.7 &  & 8.9 \\
-				& retired &  & 36.1 &  & 35.8 &  & 42.3 &  & 29.7 &  & 32.6 &  & 31.1 \\
-				& unemployed &  & 9.6 &  & 11.8 &  & 8.0 &  & 6.9 &  & 11.6 &  & 3.3 \\
-				&  &  &  &  &  &  &  &  &  &  &  &  &  \\
-				\multicolumn{2}{l|}{HH income} &  &  &  &  &  &  &  &  &  &  &  &  \\
-				& \textless{}1500 &  & 12.2 &  & 16.4 &  & 9.9 &  & 4.7 &  & 11.6 &  & 8.9 \\
-				& 1500-3000 &  & 31.9 &  & 34.8 &  & 31.2 &  & 27.7 &  & 20.9 &  & 25.6 \\
-				& 3000-5000 &  & 37.2 &  & 35.1 &  & 39.2 &  & 42.3 &  & 34.9 &  & 30.0 \\
-				& 5000-8000 &  & 16.0 &  & 12.1 &  & 17.0 &  & 21.2 &  & 32.6 &  & 24.4 \\
-				& 8000+ &  & 2.7 &  & 1.5 &  & 2.7 &  & 4.1 &  & 0.0 &  & 11.1 \\
-				&  &  &  &  &  &  &  &  &  &  &  &  &  \\
-				\multicolumn{2}{l|}{Owner} &  & 62.4 &  & 54.0 &  & 71.7 &  & 73.6 &  & 60.5 &  & 60.0 \\ 
-				& &  &  &  &  &  &  &  &  &  &  &  &  \\ \hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Summary statistics of the demographics of the total sample and the 5 types. This table shows the percentage of respondents in each type.
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+
+\input{\TableDir/summary_types_dem}
 
 \subsection{Reasons of behavior}
 In the previous section, we have seen that around 1,500 individuals did adjust their financial asset holdings, while a quarter of all observations bought and/or sold some assets. This section investigates the underlying reasons of the respective behavior.
@@ -450,33 +334,8 @@ While there is not one or two dominant reasons, a conglomeration of factors seem
 
 Looking at the lower end of the scale, the shock of the stock market break due to covid-19, which would be in line with \cite{malmendier_2011} is still for almost a quarter important, but seems not to play a predominant role. Similarly, costs such as bank fees and transaction costs and moral issues are only important for a small fraction of households.
 
-\begin{table}[]
-	\caption{Summary Statistics: Reasons No Participation}
-	\label{tab:reason_nostocks}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l|lccccccc}
-				&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
-				&  &  &  &  &  &  &  &  \\
-				information &  & 50.52\% &  & 72.80\% &  & 3.25 &  & 0.58 \\
-				no interest &  & 47.49\% &  & 69.88\% &  & 3.17 &  & 0.47 \\
-				distrust &  & 37.99\% &  & 63.03\% &  & 3.00 &  & 0.27 \\
-				too risky &  & 34.77\% &  & 59.35\% &  & 2.88 &  & 0.17 \\
-				no time &  & 33.37\% &  & 57.89\% &  & 2.83 &  & 0.09 \\
-				peer-effect &  & 30.22\% &  & 51.31\% &  & 2.70 &  & -0.08 \\
-				no savings &  & 30.32\% &  & 53.92\% &  & 2.73 &  & -0.12 \\
-				high   valuations &  & 17.52\% &  & 51.77\% &  & 2.61 &  & -0.15 \\
-				shock &  & 23.91\% &  & 46.28\% &  & 2.53 &  & -0.22 \\
-				costs &  & 19.95\% &  & 42.88\% &  & 2.44 &  & -0.34 \\
-				moral &  & 16.27\% &  & 32.39\% &  & 2.17 &  & -0.70\\ 
-				&  &  &  &  &  &  &  &  \\\hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Summary statistics of reasons why households did not adjust their portfolio between March and August 2020. The first column reports the share of individuals who rated the reason 'fully agree', while the second column doe it for 'fully agree or 'rather agree'. The third column shows the mean (1-4 with 4 'fully agree') and the fourth column reports the mean of the standardized variable.
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+%Table: Reason No-Participation
+\input{\TableDir/reason_nopart}
 
 % \textcolor{orange}{table regression nostocks and demographics \label{tab:reg_nostocks_dem}}
 
@@ -498,28 +357,7 @@ The second factor captures \textit{lack of resources}. It consists of 'lack of i
 
 The third factor consists of 'lack of savings' and 'moral issues', while the latter is negatively correlated. Hence, these households would like to invest, but the lack of additional money prevents them from doing it.
 
-\begin{table}[]
-	\caption{Principal Component Analysis: Reasons No Participation}
-	\label{tab:pca_reason_nopart}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{lcclcclc}
-				\hline
-				\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ risk aversion\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ lack of resources\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   3\\ no savings\end{tabular}} \\ \cline{1-2} \cline{4-5} \cline{7-8} 
-				&  &  &  &  &  &  &  \\
-				too risky & 0.42 &  & no interest & 0.47 &  & no savings & 0.64 \\
-				distrust & 0.42 &  & information & 0.40 &  & moral & -0.60 \\
-				shock & 0.37 &  & no time & 0.40 &  &  &  \\
-				high valuations & 0.35 &  & no savings & 0.34 &  &  &  \\
-				&  &  & shock & -0.33 &  &  &  \\
-				&  &  &  &  &  &  &  \\ \hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Caption
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/PCA_reason_nopart}
 
 In another step, a regression analysis evaluates driving factors of each component. For this, the mean value of all standardized variable is used to calculate the average value for each component. The resulting indicator is then regressed on demographics.
 
@@ -527,53 +365,15 @@ Table \ref{tab:reg_nopart_dem} shows that the first component or \textit{risk av
 
 \textcolor{orange}{Summary \& Interpretation: A result of this exercise is that many factors play an important role and can predict or explain why people do not participate in financial markets. Nevertheless, these reasons can be grouped into three big components which are driven by either a lifecycle pattern or by income levels. Hence, if someone wants to model stock market behavior, these mechanisms can be easily implemented.}
 
-\begin{table}[] \centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Reason No Participation and Demographics \label{tab:reg_nopart_dem}}
-	\resizebox{0.5\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l*{3}c}
-				\hline\hline
-				\input{\TableDir/regression_nopart_dem.tex}
-				\hline\hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
-				\item[] Additional controls are college, labor status, gender, children, home ownership
-				\item[] Data source: BOP Wave 8
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/reg_pca_nopart_dem}
 
 
 \subsubsection{Reasons No Adjustment}
 Next, I focus on individuals who held some financial assets, but did not buy or sell between March and August. These reasons refer more to 'adjustment costs', meaning the 'participation costs' are already paid, but these factors prevent them from investing \textit{more}. Or rephrasing it, the question is \textit{Why don't households adjust their portfolio?}
 
-\begin{table}[]
-	\caption{Summary Statistics: Reasons No Adjustment}
-	\label{tab:reason_unchanged}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l|lccccccc}
-				&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
-				&  &  &  &  &  &  &  &  \\
-				too risky &  & 20.47\% &  & 55.52\% &  & 2.53 &  & 0.31 \\
-				high   valuations &  & 9.47\% &  & 48.62\% &  & 2.39 &  & 0.09 \\
-				no time &  & 17.05\% &  & 49.39\% &  & 2.38 &  & 0.11 \\
-				no savings &  & 18.25\% &  & 42.20\% &  & 2.30 &  & -0.06 \\
-				peer-effect &  & 17.24\% &  & 36.07\% &  & 2.12 &  & -0.19 \\
-				costs &  & 10.67\% &  & 32.40\% &  & 2.09 &  & -0.28 \\ 
-				&  &  &  &  &  &  &  &  \\\hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Summary statistics of reasons why households did not adjust their portfolio between March and August 2020, but held stocks before. The first column reports the share of individuals who rated the reason 'fully agree', while the second column doe it for 'fully agree or 'rather agree'. The third column shows the mean (1-4 with 4 'fully agree') and the fourth column reports the mean of the standardized variable.
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/reason_noadjust}
 
-Table \ref{tab:reason_unchanged} reports the results. As a general note, the reasons in question did not score as high compared to the table above, where the most important reason had a mean of 3.25 compared to 2.53 here. \textcolor{orange}{Hence, while a large literature focuses on participation constraints, the question which reasons prevent individuals from holding larger shares in financial assets might need further attention. Are these the same or other factors which lead to non-participation?}
+Table \ref{tab:reason_noadjust} reports the results. As a general note, the reasons in question did not score as high compared to the table above, where the most important reason had a mean of 3.25 compared to 2.53 here. \textcolor{orange}{Hence, while a large literature focuses on participation constraints, the question which reasons prevent individuals from holding larger shares in financial assets might need further attention. Are these the same or other factors which lead to non-participation?}
 
 What can be seen is that uncertainty and the risk of a downturn of the stock market prevented households to buy or sell any of their assets. \textcolor{orange}{These points seem understandable as volatility increased in the market due to covid and the stock market increased heavily between March and August. As even economists could only guess whether the economy would have a L,V,W or K shaped recovery, how should households know?}
 
@@ -594,84 +394,23 @@ The second factor captures \textit{lack of time} and consists of 'lack of saving
 
 \textcolor{orange}{Summary and Interpretation: Based on the findings, households waited to invest further either because they thought the timing is bad, or other obligations prevented them from allocating time into investment decisions.}
 
-\begin{table}[]
-	\caption{ Principal Component Analysis: No Adjustment}
-	\label{tab:reason_unchanged}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{llcll}
-				\hline
-				\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ bad timing\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ lack of time\end{tabular}} \\ \cline{1-2} \cline{4-5} 
-				& \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} \\
-				too risky & 0.63 &  & no savings & -0.70 \\
-				high valuations & 0.58 &  & peer effect & 0.55 \\
-				costs & 0.49 &  & no time & 0.45 \\
-				&  &  &  &  \\  \hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Notes
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/pca_reason_noadjust}
 
 \subsubsection{Reasons bought}
 The first two paragraphs focused on what prevents households from holding any stocks or only to a limited amount. Now, we ask the question \textit{What factors encourage households to purchase financial assets?}
 
-\begin{table}[]
-	\caption{Summary Statistics: Reasons Bought}
-	\label{tab:reason_bought}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l|lccccccc}
-				&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
-				&  &  &  &  &  &  &  &  \\
-				low valuations &  & 38.74\% &  & 64.08\% &  & 2.79 &  & 0.90 \\
-				plan &  & 43.54\% &  & 62.07\% &  & 2.76 &  & 0.92 \\
-				time &  & 8.09\% &  & 26.59\% &  & 1.77 &  & -0.07 \\
-				information &  & 7.60\% &  & 24.22\% &  & 1.70 &  & -0.15 \\
-				less   consumption &  & 3.88\% &  & 18.73\% &  & 1.58 &  & -0.29 \\
-				more income &  & 4.33\% &  & 19.88\% &  & 1.57 &  & -0.31 \\
-				peer-effect &  & 4.15\% &  & 13.87\% &  & 1.49 &  & -0.36 \\
-				bank fees &  & 0.38\% &  & 3.52\% &  & 1.21 &  & -0.65 \\ 
-				&  &  &  &  &  &  &  &  \\\hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Summary statistics of reasons why households bought financial assets between March and August 2020. The first column reports the share of individuals who rated the reason 'fully agree', while the second column doe it for 'fully agree or 'rather agree'. The third column shows the mean (1-4 with 4 'fully agree') and the fourth column reports the mean of the standardized variable.
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/reason_bought}
 
 Table \ref{tab:reason_bought} reports the answers to the question \textit{'Why did you decide to buy the asset(s) after the coronavirus pandemic began?'} The picture is much clearer in this case, as more than 60\% at least rather agreed and around 40\% fully agreed with two statements. First, \textit{low valuation}, meaning expecting higher stock market values in the future led to their investment decision, and second, households bought assets using a (pre-existing) \textit{savings plan}. \textcolor{orange}{These insights can be easily implemented in economic models where a share of households save using savings plan with a fixed amount invested each period and households who actively take advantage of low valuations.} 
 
 Looking at the lower end, additional time and information played for around a quarter of respondents an important role. \textcolor{orange}{These would be factors, policy makers could focus on increasing stock market participation rates.} An increase in savings due either less consumption or more income led around 20\% to a purchase of additional assets. Finally, peer-effects which have been focused on by many scholars, seems to be a rather less important factor for the average buyer and bank fees -- eg actual costs of transaction -- have a very small elasticity.
 
 %\textcolor{orange}{table regression bought and demographics with FT buyer and has bought and sold}
-\begin{table}[]
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Reason bought and Demographics \label{tab:reg_bought_dem}}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l*{7}{c}}
-				\hline\hline
-				\input{\TableDir/regression_has_bought.tex}
-				\hline\hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Reason bought (standardized).
-				\item[] Additional controls are labor status, gender, children, home ownership
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/regression_bought_dem}
 
 By focusing on household heterogeneity in table \ref{tab:reg_bought_dem}, we add a dummy for first time buyers and if the individual bought and sold as well to capture re-balancing effects. Additionally, the regression controls for labor status, gender, if the respondent has children living in the household and home ownership status. As they do not add any value, it is suppressed in the table.
 
-Most variation can be captured by either an income or cohort effect. Column 1 shows that \textit{low valuation} is more important for respondents with less than 1500 Euro monthly income, while having a \textit{savings plan} or more savings due to \textit{less consumption} has the opposite effect. For the cohort effect, the reasons \textit{more time} and \textit{peer effect} are more prominent for people below 30.
+Most variation can be captured by either an income or cohort effect. Column 1 shows that \textit{low valuation} is more important for respondents with a monthly income of less than 1500\euro, while having a \textit{savings plan} or more savings due to \textit{less consumption} has the opposite effect. For the cohort effect, the reasons \textit{more time} and \textit{peer effect} are more prominent for people below 30.
 
 Interestingly, looking at first time buyers, having \textit{more time} (column 3) is very important. \textcolor{orange}{This could explain the increase in stock holdings in Germany. Young households, who had more time on their hand started to invest.}
 
@@ -690,27 +429,7 @@ Lastly, households who rebalanced did so because of the \textit{low valuation}, 
 % first time: savings plan is less important (duh), time is more important!, 
 \paragraph{Principal Component Analysis}
 
-\begin{table}[]
-	\caption{ Principal Component Analysis: Has Bought}
-	\label{tab:PCA_reason_bough}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{llclcclc}
-				\hline
-				\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ additional resources\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ active vs passive\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   3\\ TBD?\end{tabular}} \\ \cline{1-2} \cline{4-5} \cline{7-8} 
-				& \multicolumn{1}{c}{} &  &  &  &  &  &  \\
-				costs & 0.57 &  & plan & \multicolumn{1}{l}{-0.69} &  & less consumption & \multicolumn{1}{l}{0.70} \\
-				more income & 0.51 &  & low valuations & \multicolumn{1}{l}{0.58} &  & peer effect & \multicolumn{1}{l}{0.67} \\
-				information & 0.49 &  &  &  &  &  &  \\
-				time & 0.37 &  &  &  &  &  &  \\
-				& \multicolumn{1}{c}{} &  &  &  &  &  &  \\ \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Notes
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/pca_reason_bought}
 
 
 \paragraph{Active vs Passive Buyers}
@@ -724,83 +443,21 @@ Next, I use a probit model to see which demographic characteristics determine ac
 
 Columns 5 and 6 show that active buyers were also more likely to state that additional time, information, income and a peer-effect led them to the decision to buy. Contrarily, passive buyers are less responsive to these factors.
 
-\begin{table}[]
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Active vs Passive buyers (Probit) \label{tab:reg_bought_active_passive}}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l*{7}{c}}
-				\hline\hline
-				\input{\TableDir/regression_bought_active_passive.tex}
-				\hline\hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Active or Passive buyer.
-				\item[] Additional controls are education, labor status, gender, children
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
-
+\input{\TableDir/regression_bought_active_passive}
 
 
 \paragraph{By Asset type}
 Table \ref{tab:reg_has_asset_bought} highlights which asset types respondents bought. One striking result is that if households already held an asset type before, they were much more likely to invest in the same asset type again. Additionally, the value held predicts a higher probability of investing in the same asset type. This at least holds true for fonds and bonds. %Hence, while holding any amount of assets increases the likelihood of investing more in it%Also, male respondents were more likely to invest in general, while \textit{other assets} shows the largest gap. 
 
-\begin{table}[]
-	\centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Has bought by asset type (Probit) \label{tab:reg_has_asset_bought}}
-	\resizebox{0.6\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l*{4}{c}}
-				\hline\hline
-				\input{\TableDir/regression_has_asset_bought.tex}
-				\hline\hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Has asset type.
-				\item[] Additional controls are income, age, children, labor status
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/regression_bought_asset}
+
 \textcolor{orange}{Summary and Interpretation:}
 
 \subsubsection{Reasons sold}
 Lastly, we focus on the question \textit{Why do households sell their financial assets?} As we have seen above, this group consists only of around 6\% of households in the sample (N=133) which indicates that the results should be received with caution.
 
-\begin{table}[]
-	\caption{Summary Statistics: Reasons Sold}
-	\label{tab:reason_sold}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l|lccccccc}
-				&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
-				&  &  &  &  &  &  &  &  \\
-				high valuations &  & 12.46\% &  & 40.94\% &  & 2.29 &  & 0.84 \\
-				re-balancing &  & 23.93\% &  & 44.36\% &  & 2.25 &  & 0.71 \\
-				shock &  & 6.83\% &  & 26.54\% &  & 1.79 &  & 0.15 \\
-				too risky &  & 6.96\% &  & 23.06\% &  & 1.72 &  & 0.06 \\
-				need   consumption &  & 6.84\% &  & 17.60\% &  & 1.55 &  & -0.17 \\
-				need debt   obligations &  & 5.94\% &  & 13.38\% &  & 1.43 &  & -0.31 \\
-				no time &  & 4.02\% &  & 11.68\% &  & 1.38 &  & -0.35 \\
-				peer-effect &  & 0.25\% &  & 10.79\% &  & 1.34 &  & -0.39 \\
-				need support   friends/family &  & 1.60\% &  & 6.79\% &  & 1.23 &  & -0.54\\ 
-				&  &  &  &  &  &  &  &  \\\hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Summary statistics of reasons why households sold any assets between March and August 2020. The first column reports the share of individuals who rated the reason 'fully agree', while the second column doe it for 'fully agree or 'rather agree'. The third column shows the mean (1-4 with 4 'fully agree') and the fourth column reports the mean of the standardized variable.
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/reason_sold}
+
 \textbf{DON'T CONTRADICT YOURSELF HERE}
 
 Broadly speaking, the reasons can be split up in three groups based on their importance. Table \ref{tab:reason_sold} shows that around 40\% of households either wanted to cash in their profits (or prevent further losses) and invest in other vehicles (\textit{re-balancing}). The second group consists of individuals who are driven out of the stock market based on a mechanism of \cite{malmendier_2011}, as the shock and the increased uncertainty played a major an important ole why they sold. Here, around a quarter stated that these reasons led to their decision. Lastly, a need for liquidity due to debt obligations or consumption played only a limited role over all. \textcolor{orange}{\cite{dimaggio_et_al_2020stock_mpc} show in a recent study that MPCs out of capital gains is relatively low (especially for not liquidity constraint households)\footnote{Using Swedish data, the authors show that MPCs out of dividend payments is around 23\% for the bottom half of the wealth distribution. As I am asking solely of sells and hence, capital gains, my results are in line.}. .... OR: This could be interpreted as while economists treat financial assets and sight/deposit accounts equally liquid, households might tend to hold financial assets as a \textit{'silver ware'} and sell them only in times of desperate need.}
@@ -808,48 +465,9 @@ Broadly speaking, the reasons can be split up in three groups based on their imp
 \paragraph{Principal Component Anaylsis}
 The principal component analysis confirms the interpretation. Table \ref{tab:PCA_reason_sold} indicates that four groups are important. The first one consists of factors related to the \textit{crisis}. Either the increase in risk or even the stock market fall let them to sell assets. The second factor consists of reasons with \textit{personal consumption}. The third concerns a \textit{social component}, meaning either respondents sold because others did as well or they wanted to support friends and family. Lastly, some households \textit{rebalanced}
 
-\begin{table}[]
-	\caption{ Principal Component Analysis: Sold}
-	\label{tab:PCA_reason_sold}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{llcllclcclc}
-				\hline
-				\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ Crisis\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ Lack of Resources\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   3\\ Social Component\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   4\\ Rebalancing\end{tabular}} \\ \cline{1-2} \cline{4-5} \cline{7-8} \cline{10-11} 
-				& \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} &  &  &  &  &  &  \\
-				too risky & 0.59 &  & \begin{tabular}[c]{@{}l@{}}need debt \\ obligations\end{tabular} & 0.66 &  & peer effect & 0.75 &  & rebalancing & 0.94 \\
-				shock & 0.56 &  & need consumption & 0.65 &  & \begin{tabular}[c]{@{}l@{}}need support\\ friends and \\ family\end{tabular} & 0.56 &  &  &  \\
-				no time & 0.44 &  &  &  &  &  &  &  &  &  \\
-				high valuation & 0.34 &  &  & \multicolumn{1}{c}{} &  &  &  &  &  &  \\
-				& \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} &  &  &  &  &  &  \\ \hline \hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Notes
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/pca_reason_sold}
 
-\begin{table}[htbp]\centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Reason sold and Demographics \label{tab:reg_sold_dem}}
-	\resizebox{\textwidth}{!}{%
-		\begin{threeparttable}
-			\begin{tabular}{l*{4}{c}}
-				\hline\hline
-				\input{\TableDir/regression_sold_dem.tex}
-				\hline\hline
-			\end{tabular}
-			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Reason sold (standardized).
-				\item[] Additional controls are income, age, labor status, gender, home ownership
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
-			\end{tablenotes}
-		\end{threeparttable}
-	}
-\end{table}
+\input{\TableDir/regression_sold_dem}
 
 Table \ref{tab:reg_sold_dem} shows the underyling heterogeneity of the components from the PCA. Column 1 consists of variables about the crisis. The large negative correlation with \textit{bought \& sold} indicates that these respondents are scared away from the stock market. The second column indicates that respondents who need the money are more likely to be non-college graduates. The third column shows interestingly that \textit{kurzarbeit} is important for having solds due to \textit{peer effects} or \textit{need support friends and family}. Lastly, \textit{rebalancing} is obviously most important for respondents who bought as well.
 
@@ -874,40 +492,11 @@ The remaining columns capture quantitative statements. Here, respondents were as
 
 
 % Table Property Prices
-\begin{table}[htbp]\centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Has bought and Expectations of Property Prices (Probit) \label{tab:reg_has_bought_exp_prop}}
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{l*{6}{c}}
-			\hline\hline
-			\input{\TableDir/regression_has_bought_expec_pp.tex}
-			\hline\hline
-			\multicolumn{7}{l}{\footnotesize Standard errors in parentheses}\\
-			\multicolumn{7}{l}{\footnotesize Dependent variable: Has assets bought.}\\
-			\multicolumn{7}{l}{\footnotesize Controls are income, age, gender, home owner, children, labor status, college}\\
-			\multicolumn{7}{l}{\footnotesize Data source: BOP Wave 8}\\
-			\multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
-		\end{tabular}
-	}
-\end{table}
+\input{\TableDir/regression_bought_expec_pp}
+
 
 % Table Property Prices: Conditional on participation
-\begin{table}[htbp]\centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Has bought and Expectations of Property Prices: Conditional on Participation (Probit) \label{tab:reg_has_bought_exp_prop_cond}}
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{l*{6}{c}}
-			\hline\hline
-			\input{\TableDir/regression_has_bought_expec_pp_cond.tex}
-			\hline\hline
-			\multicolumn{7}{l}{\footnotesize Standard errors in parentheses}\\
-			\multicolumn{7}{l}{\footnotesize Dependent variable: Has assets bought.}\\
-			\multicolumn{7}{l}{\footnotesize Controls are income, age, gender, home owner, children, labor status, college}\\
-			\multicolumn{7}{l}{\footnotesize Data source: BOP Wave 8}\\
-			\multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
-		\end{tabular}
-	}
-\end{table}
+\input{\TableDir/regression_bought_expec_pp_cond}
 
 \paragraph{Buying financial assets and inflation expectations}
 The second relationship connects expected inflation with the probability to buy financial assets. Previous literature shows that higher inflation can have a short-term negative impact on stock prices, but a possible positive ling term effect (eg \cite{anari_kolari_2001inflation}). Possible explanations of this relationship are that inflation or the response of central banks reduces the profitability if companies, an increase in risk which investors might not like, or failure of nominal price adjustments (Mogdiliani and Cohn, 1979).\footnote{See \cite{campbell_vuolteenaho_2004inflation} for a discussion and empirical evidence for the latter reason.}
@@ -919,40 +508,12 @@ The first column uses qualitative statements of \textit{interest of credit}, \te
 Columns 7 and 8 make use of probabilistic statements. Here, respondents were asked to state how likely each inflation bin is, ranging from -12 to +12\%. Column 7 uses the expected inflation estimate, while column 8 adds the standard deviation of each probability distribution. What can be seen is that not only the point estimate is important, but uncertainty about inflation reduces the probability to buy massively.
 
 % Table Inflation
-\begin{table}[htbp]\centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Has bought and Expectations of Inflation (Probit) \label{tab:reg_has_bought_exp_infl}}
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{l*{8}{c}}
-			\hline\hline
-			\input{\TableDir/regression_has_bought_expec_infl.tex}
-			\hline\hline
-			\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
-			\multicolumn{9}{l}{\footnotesize Dependent variable: Has assets bought.}\\
-			\multicolumn{9}{l}{\footnotesize Controls are income, age, gender, home owner, children, labor status, college}\\
-			\multicolumn{9}{l}{\footnotesize Data source: BOP Wave 8}\\
-			\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
-		\end{tabular}
-	}
-\end{table}
+\input{\TableDir/regression_bought_expec_inflation}
+
 
 % Table Inflation
-\begin{table}[htbp]\centering
-	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Has bought and Expectations of Inflation: Cond on Participation (Probit) \label{tab:reg_has_bought_exp_infl_cond}}
-	\resizebox{\textwidth}{!}{%
-		\begin{tabular}{l*{8}{c}}
-			\hline\hline
-			\input{\TableDir/regression_has_bought_expec_infl_cond.tex}
-			\hline\hline
-			\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
-			\multicolumn{9}{l}{\footnotesize Dependent variable: Has assets bought.}\\
-			\multicolumn{9}{l}{\footnotesize Controls are income, age, gender, home owner, children, labor status, college}\\
-			\multicolumn{9}{l}{\footnotesize Data source: BOP Wave 8}\\
-			\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
-		\end{tabular}
-	}
-\end{table}
+\input{\TableDir/regression_bought_expec_inflation_cond}
+
 \textbf{Malmendier Handbook chapter: Inflation expectation: Strong evidence on influence on financial choices: homeownership (buy vs rent), mortgage borrowing, mortgage type (frm/arm)... Limited evidence on economic choices such as consumption, labor supply, wage negotiations}
 
 \textbf{Kuchler Handbook chapter: House price expectation and buying}

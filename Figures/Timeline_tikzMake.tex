@@ -1,23 +1,14 @@
-\input{./econtexRoot}\documentclass[\econtexRoot/ProjectABM]{subfiles}
-\input{./econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
-\onlyinsubfile{\externaldocument{\LaTeXGenerated/ProjectABM}}
-
-
-
+\input{./econtexRoot}\documentclass[tikz,border=1mm]{standalone}
+\usepackage{\LaTeXInputs/ProjectABM-tikz}
 
 \begin{document}
-
-%\input{\FigDir/RelatePFGICFHWCRICPFFVAC}
-%\input{\FigDir/cFuncsConverge}
-%\input{\FigDir/Inequalities}
-%\input{\FigDir/FVACnotGIC}
-%\input{\FigDir/cGroTargetFig}
-%\input{\FigDir/MPCLimits}
-%\input{\FigDir/cFuncBounds}
-%\input{\FigDir/PFGICHoldsFHWCFailsRICFails}
-\input{\FigDir/Timeline}
-
+\newcommand{\figName}{Timeline}
+\tikzset{node distance=4cm, auto, >=latex}
+\begin{tikzpicture}
+  \input{\FigDir/\figName.tikz}
+\end{tikzpicture}
 \end{document}
+
 % Local Variables:
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))
 % eval: (setq TeX-command-list  (assq-delete-all (car (assoc "BibTeX" TeX-command-list)) TeX-command-list))

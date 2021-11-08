@@ -1,0 +1,14 @@
+ 
+        
+        \node (NoAssets) [startstop] {Had no Assets};
+        \node (HadAssets)[startstop, below of = NoAssets]{Had Assets};
+        \node(Nopart)[startstop, right of = NoAssets, yshift = 2cm, xshift = 2cm]{I. Non-Participation};
+        \node(Bought)[startstop, below of = Nopart,]{II. Bought};
+        \node(Sold)[startstop, right of = HadAssets, xshift = 2cm]{III. Sold};
+        \node(Noadjust)[startstop, below of = Sold, yshift = 1cm]{IV. No Adjustment};
+        \draw[arrow](NoAssets) |- (Nopart);
+        \draw[arrow](NoAssets) |- (Bought);
+		\draw[arrow](HadAssets) |- (Bought);
+		\draw[arrow](HadAssets) |- (Sold);
+		\draw[arrow](HadAssets) |- (Noadjust);        %xshift and yshift
+        

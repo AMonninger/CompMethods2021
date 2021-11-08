@@ -3,7 +3,13 @@
 scriptDir="$(dirname "$0")"
 
 # Regenerate computed results (figs) needed for compiling paper
-./reproduce/computed.sh
+#./reproduce/computed.sh
+
+# Copy tables from shared folder  into tables  directory
+#cd /media/sf_VirtualBox/output/table
+for tables in *.tex; do
+    echo "Copying tables from Shared folder into directory"
+    cp \SharedFolder/table/. TableDir/
 
 echo '' ; echo 'Reproduce text of paper:' ; echo ''
 

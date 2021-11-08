@@ -1,0 +1,16 @@
+\begin{table}[htbp]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Regression Table: Has bought and Expectations of Inflation (Probit) \label{tab:reg_bought_exp_infl}}
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{l*{8}{c}}
+			\hline\hline
+			\input{\TableDir/regression_bought_expec_infl_input.tex}
+			\hline\hline
+			\multicolumn{9}{l}{\footnotesize Standard errors in parentheses}\\
+			\multicolumn{9}{l}{\footnotesize Dependent variable: Has assets bought.}\\
+			\multicolumn{9}{l}{\footnotesize Controls are income, age, gender, home owner, children, labor status, college}\\
+			\multicolumn{9}{l}{\footnotesize Data source: BOP Wave 8}\\
+			\multicolumn{9}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+		\end{tabular}
+	}
+\end{table}

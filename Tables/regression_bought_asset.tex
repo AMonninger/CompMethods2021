@@ -1,17 +1,18 @@
-\begin{table}[htbp]\centering
+\begin{table}[]
+	\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-	\caption{Regression Table: Reason sold and Demographics \label{tab:reg_sold_dem}}
-	\resizebox{\textwidth}{!}{%
+	\caption{Regression Table: Has bought by asset type (Probit) \label{tab:reg_bought_assets}}
+	\resizebox{0.6\textwidth}{!}{%
 		\begin{threeparttable}
 			\begin{tabular}{l*{4}{c}}
 				\hline\hline
-				\input{\TableDir/regression_sold_dem_input.tex}
+				\input{\TableDir/regression_bought_asset_input.tex}
 				\hline\hline
 			\end{tabular}
 			\begin{tablenotes}\footnotesize
 				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Reason sold (standardized).
-				\item[] Additional controls are income, age, labor status, gender, home ownership
+				\item[] Dependent variable: Has asset type.
+				\item[] Additional controls are income, age, children, labor status
 				\item[] Data source: BOP Wave 8
 				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
 			\end{tablenotes}
