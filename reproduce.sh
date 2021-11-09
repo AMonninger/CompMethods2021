@@ -5,11 +5,14 @@ scriptDir="$(dirname "$0")"
 # Regenerate computed results (figs) needed for compiling paper
 #./reproduce/computed.sh
 
+# Boolean for User: Adrian or not. If Adrian: Can update table inputs. If not: no access to shared folder
+
 # Copy tables from shared folder  into tables  directory
 #cd /media/sf_VirtualBox/output/table
 for tables in *.tex; do
-    echo "Copying tables from Shared folder into directory"
+    echo "Copying tables from Shared folder into Table directory"
     cp \SharedFolder/table/. TableDir/
+done
 
 echo '' ; echo 'Reproduce text of paper:' ; echo ''
 
@@ -26,7 +29,7 @@ for fName_tikzMake in *Make.tex; do # names of all files ending in Make.tex
     cmd="pdflatex -halt-on-error --output-format pdf -output-directory=../$output_directory $fName_tikzMake"
     echo "$cmd"
     eval "$cmd"
-    mv -f                                                             "../$output_directory/$fName" "$fName.pdf"
+    mv -f                                                             "../$output_directory/$fName_tikzMake.pdf" "$fName.pdf" #changed: added _tikzMake. Not sure if really necessary
 done
 cd ..
 
