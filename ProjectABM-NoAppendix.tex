@@ -274,6 +274,8 @@ Based on the answers, respondents could belong to four types: \textit{no partici
 	\label{fig:timeline}
 \end{figure}
 
+\include{\FigDir/Types}
+
 \subsection{Expectation data}
 The BOP is rich in questions regarding consumer expectations. 
 \begin{enumerate}
@@ -477,9 +479,17 @@ In this section, I want to capitalize other questions of the survey on expectati
 Most papers analyzed expectations of stock returns on stock holdings/trading (eg \cite{dominitz_manski_2011measuring_expectations, giglio_et_al_2019five}). The BOP does ask for other variables such as economic growth, property prices or inflation in various ways. Respondents are asked to give qualitative statements, point estimates and probabilistic distributions.
 
 I run probit regressions of the form:
-\begin{align}
-	y_i = \beta X + \gamma Z + \epsilon
-\end{align}
+\begin{verbatimwrite}{\EqDir/Prob_regression_expec}
+	\begin{align}
+		y_i = \beta X + \gamma Z + \epsilon  \label{eq:Prob_reg_expec}
+	\end{align}
+\end{verbatimwrite}
+\input{\EqDir/Prob_regression_expec}
+
+%\include{\EqDir/Prob_regresseion_expec}
+%\begin{align}
+%	y_i = \beta X + \gamma Z + \epsilon
+%\end{align}
 where $y_i$ is a dummy variable indicating if a person bought, $X$ is a vector of controls capturing household demographics and $Z$ contains expectations.
 
 Results are twofolded. First, housing prices crowd out stock market investments and second, higher inflation expectations prevents households of buying.
