@@ -29,7 +29,7 @@ for fName_tikzMake in *Make.tex; do # names of all files ending in Make.tex
     cmd="pdflatex -halt-on-error --output-format pdf -output-directory=../$output_directory $fName_tikzMake"
     echo "$cmd"
     eval "$cmd"
-    mv -f                                                             "../$output_directory/$fName_tikzMake.pdf" "$fName.pdf" #changed: added _tikzMake. Not sure if really necessary
+    mv -f                                                             "../$output_directory/$fName.pdf" "$fName.pdf" #changed: added _tikzMake. Not sure if really necessary
 done
 cd ..
 

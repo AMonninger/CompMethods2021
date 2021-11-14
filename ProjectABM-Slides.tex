@@ -4,7 +4,7 @@
 \newif\ifdvi\dvifalse
 
 %\usepackage{optional}
-\usepackage{ifthen}%\usepackage{\econtexRoot/BufferStockTeory}
+%\usepackage{ifthen}%\usepackage{\econtexRoot/BufferStockTeory}
 
 % Can't read in ProjectABM.sty because some packages conflict with Beamer
 % So need to redefine everything here
@@ -16,382 +16,988 @@
 \usepackage{dcolumn}
 \usepackage{cancel}
 %\providecommand{\LtxDir\EqDir}{\econtexRoot/Equations}
-\providecommand{\FigsRaw}{\econtexRoot/Code/Python/Figures}
-\providecommand{\CodeDir}{\econtexRoot/Code}
-\providecommand{\CalibrationDir}{\econtexRoot/Calibration}
+%\providecommand{\FigsRaw}{\econtexRoot/Code/Python/Figures}
+%\providecommand{\CodeDir}{\econtexRoot/Code}
+%\providecommand{\CalibrationDir}{\econtexRoot/Calibration}
 \providecommand{\TableDir}{\econtexRoot/Tables}
-\providecommand{\ApndxDir}{\econtexRoot/Appendices}
-\providecommand{\Ex}{\mathbb{E}}
+%\providecommand{\ApndxDir}{\econtexRoot/Appendices}
+%\providecommand{\Ex}{\mathbb{E}}
+
+% additional packages: ABM
+\usepackage{threeparttable}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 
 %\usepackage{natbib}\newcommand*{\newblock}{}
 
+%\mode<presentation>
+%{
+%  \usetheme{Warsaw}
+%  % or ...
+%  \setbeamercovered{transparent}
+%}
+
 \mode<presentation>
 {
-  \usetheme{Warsaw}
-  % or ...
-  \setbeamercovered{transparent}
-}
+	\usetheme{CambridgeUS}      % or try Darmstadt, Madrid, Warsaw, ...
+	\usecolortheme{default} % or try albatross, beaver, crane, ...
+	\usefonttheme{default}  % or try serif, structurebold, ...
+	\setbeamertemplate{navigation symbols}{}
+	\mode<beamer>{\setbeamertemplate{blocks}[rounded][shadow=true]}
+	\setbeamertemplate{caption}[numbered]
+	\useoutertheme{infolines}
+	\useoutertheme[subsection=false]{miniframes}
+} 
 
 %\beamerdefaultoverlayspecification{<+->}
 
 %\setbeamertemplate{navigation symbols}{}  % Take away navigation symbols
 
-\usetheme{Warsaw}
+%\usetheme{Warsaw}
 
-\setbeamersize{text margin left=3mm}
-\setbeamersize{text margin right=3mm}
-
+%\setbeamersize{text margin left=3mm}
+%\setbeamersize{text margin right=3mm}
 
 %_____________ Opening slide _______________________
 
-\title[Buffer Stock Theory]{Theoretical Foundations of Buffer Stock Saving}
-\author[Carroll]{Chris Carroll}
-\institute[JHU]{Johns Hopkins University}
-\date[\today]{September 12, 2019  \\ \medskip \medskip \medskip \href{https://econ-ark.org/}{\small Powered By} \\ \includegraphics[width=0.5in]{\econtexRoot/Resources/econ-ark-logo-small.png}}
+%\title[Buffer Stock Theory]{Theoretical Foundations of Buffer Stock Saving}
+%\author[Carroll]{Chris Carroll}
+%\institute[JHU]{Johns Hopkins University}
+%\date[\today]{September 12, 2019  \\ \medskip \medskip \medskip \href{https://econ-ark.org/}{\small Powered By} \\ \includegraphics[width=0.5in]{\econtexRoot/Resources/econ-ark-logo-small.png}}
+\title[EPP, Expectations and Covid-19] {Equity Premium Puzzle, Expectations and Covid-19:\\ Evidence from Germany}
+\subtitle{ \vspace{0.25em} \textit{-- work in progress --} }
+\author[A. Monninger]{Adrian Monninger\inst{1}}
+\institute[]{\inst{1} Johns Hopkins University}
+\date{\today}
 
-\begin{document}\bibliographystyle{\econtexBibStyle}
-
-\begin{frame}[plain]
-  \titlepage
+\begin{document}
+\bibliographystyle{\econtexBibStyle}
+\bibliography{economics}
+\begin{frame}
+	\titlepage
 \end{frame}
 
 
 %_____________ 1st section  ____________
 \section{Introduction}
-\subsection{Motivation}
+\begin{frame}[label = motivation_2]
+	\frametitle{Motivation: Stock market turbulence due to Covid-19}
+	\begin{figure}
+		\centering
+		\includegraphics[height=6cm ]{\FigDir/dax.png}
+	\end{figure}
+	\hyperlink{sp500}{\beamerbutton{S \&P 500}}
+	\hyperlink{eurostoxx50}{\beamerbutton{Eurostoxx 50}}
+\end{frame}
 
-\begin{frame}
-\frametitle{Drawbacks of Numerical Solutions}
+\begin{frame}[label = motivation_2]
+	\frametitle{Motivation: Change of Equity Holders}
+	\begin{figure}
+		\centering
+		\includegraphics[height=7cm ]{\FigDir/DAI_graph.PNG}
+		%\caption{Change of German Equity Holders between 2019 and 2020 by age group}
+	\end{figure}
+\end{frame}
 
-
-\pause A Black Box \pause
-\begin{itemize}
-\item Can Construct Solution to Model Without Really Understanding It
-\item Hard Even To Be Sure Your Numerical Solution Is {\it Right}
-\item Little Intuition for How Results Might Change With
-\begin{itemize}
-\item Calibration
-\item Structure
-\end{itemize}
-\item {\it Very} Hard To Teach!
-\end{itemize}
-
-\medskip\medskip
-\pause I Am A {\it Big} Fan Of Numerical Methods
-\begin{itemize}
-\item Have Done A Good Deal Of Work With Them Myself
-\item But As A Result, Have Felt All These Drawbacks Keenly
-\end{itemize}
-
-
-
+\begin{frame}{This paper}
+	
+	\begin{block}{Research Question}
+		{\begin{enumerate}
+				\item What prevents households from investing?
+				\item What make them invest?
+				\item How are expectations and financial investments connected?
+		\end{enumerate}}
+	\end{block}
+	\vspace{1em}
+	\pause
+	\begin{block}{Inserting questions in the \textit{Bundesbank Online Pilot (BOP)} I find that...}
+		{
+			\pause
+			\begin{enumerate}
+				\item \textbf{Participation costs}: lack of information and interest
+				\item \textbf{Adjustment costs}: risk and time constraint
+				\item \textbf{Buyers} invested either because of opportunity or savingsplan. 
+				\item Higher house price and inflation \textbf{expectations} reduce the likelihood to invest
+			\end{enumerate}
+		}
+		
+	\end{block}
 \end{frame}
 
 \begin{frame}
-\frametitle{The Gap This Paper Fills}
-
-\pause Foundations For Microeconomic Household's Problem With
-\begin{itemize}
-\item Uncertain Labor Income
-\item No Liquidity Constraints
-\item CRRA Utility
-\item (Problem with Liquidity Constraints Is A Limiting Case)
-\end{itemize}
-
-\end{frame}
-\begin{frame}{Key Result}
-\pause
-Restrictions On Parameter Values Such That \pause
-\begin{itemize}
-\item Problem Defines A Contraction Mapping
-\begin{itemize}
-\item $\Rightarrow~~\exists $ A Unique Consumption Function $\cFunc(m)$
-\end{itemize}
-\item There Is A `Target' Ratio Of Assets to Permanent Income
-\begin{itemize}
-\item Requires A Key `Impatience' Condition To Hold
-\item Good News
-\begin{itemize} \item Condition Is Weaker (Easier To Satisfy) Than Previous Papers Imposed \end{itemize}
-\end{itemize}
-\end{itemize}
-
+	\frametitle{Gap in the Literature}
+	\begin{enumerate}
+		\item Equity Premium Puzzle: Comparing mechanisms\\
+		\small{In spirit of \cite{choi_2020, bender_et_al_2019}}
+		\vspace{2em}
+		\item Adjustment Costs and how to overcome them\\
+		\small{\cite{bonaparte_et_al_2012adjustment}}
+		\vspace{2em}
+		\item Expectations and Financial Asset investments\\
+		\small{\cite{giglio_et_al_2019five, manski_2018survey}}
+	\end{enumerate}
 \end{frame}
 
-\section{The Problem}
+
+
+\section{Data}
 
 \begin{frame}
-
-Limit as horizon $T$ goes to infinity of 
-%\input \LtxDir\EqDir/supfn
-
-\input \LtxDir\EqDir/DBCparts
-
-\input \LtxDir\EqDir/tShkDef
-
-\begin{itemize}
-\item $\util(\bullet)=\bullet^{1-\CRRA}/(1-\CRRA)$; $\Ex_{t}[\pShk_{t+n}]=\Ex_{t}[\tShk_{t+n}]=1~\forall~n>0$; $\beta < 1, \CRRA > 1$
-\end{itemize}
-
+	\frametitle{Bundesbank Online Panel}
+	\begin{itemize}
+		\setlength\itemsep{0.8em}
+		\item Bundesbank Online Pilot Survey on Consumer Expectations (BOP) 
+		\item Online survey of German citizens aged 16 years or older
+		\item Monthly survey with 2,000 households 
+		\item Representative sample
+		\item Individuals’ expectations and socio-demographic characteristics
+		\pause
+		\item \textbf{Additional questions on financial asset investments}
+	\end{itemize} 
 \end{frame}
 
-\begin{frame}
-\frametitle{Surely This Problem Has Been Solved?}
-
-\pause No.
-\begin{itemize}
-\item Can't Use Stokey et.\ al.\ theorems because CRRA utility
-\item Lit thru \cite{mnUnique} Can't Handle Permanent Shocks
-\item Must Use Boyd's `Weighted' Contraction Mapping Theorem 
-\item Surprisingly Subtle
-\end{itemize}
-
-\pause Fortunately, the Conclusions Are Simple!
-
+\begin{frame}[label = Timeline]
+	\frametitle{Bundesbank Online Panel}
+	\vspace{-1.7em}
+	\begin{figure}
+		\centering
+		\includegraphics[scale = .45]{\FigDir/timeline_1.PNG}
+	\end{figure}
+	\onslide<1>{\hspace{4em}\hyperlink{BOP Q1}{\beamerbutton{BOP}}\hyperlink{BOP Q2}{\beamerbutton{BOP}}\hspace{4em}\hyperlink{BOP Q3}{\beamerbutton{BOP}}\hyperlink{BOP Q4}{\beamerbutton{BOP}}}
+	\pause
+	\vspace{-1.5em}
+	\begin{figure}
+		\centering
+		\includegraphics[scale = .45]{\FigDir/timeline_2.PNG}
+	\end{figure}
 \end{frame}
 
-\subsection{The Perfect Foresight Problem}
-
-\begin{frame}
-\frametitle{Benchmark: Perfect Foresight Model}
-
-Definitions: \smallskip
-
-\begin{tabular}{llcl}
-   Absolute Patience Factor & $\Pat$ & = & $(\Rfree \Discount)^{1/\CRRA}$
-\\ Return Patience Factor & $\PatR$ & = & \Pat/\Rfree
-\\ Perfect Foresight Growth Patience Factor & $\PatPGro$ & = & \Pat/\PGro
-\end{tabular}
-
-\medskip
-
-\begin{tabular}{l|lcl|l} \hline
-   Name                                 & \multicolumn{3}{c|}{Condition}    & Implication 
-\\ \hline (\AIC) Absolute Impatience Condition  & $\Pat$  & $<$ & 1 & $\cLev$ $\downarrow$ over time
-\\ (\RIC) Return Impatience Condition    & $\PatR$ & $<$ & 1 & $\cLev/\aLev$ $\downarrow$ over time
-\\ (\GIC) Growth Impatience Condition & $\PatPGro$ & $<$ & 1 & $\cLev/\pLev$ $\downarrow$ over time
-\end{tabular}
-
-\medskip
-
-\end{frame}
-
-\begin{frame}
-\frametitle{When Does A Useful Limiting Solution Exist?}
-
-Finite Human Wealth (\FHWC) condition:
-\begin{eqnarray}
-\PGro & < & \Rfree
-\end{eqnarray}
-
-\pause\medskip
-Return Impatience Condition:
-\begin{eqnarray}
-\PatR & < & \Rfree
-\end{eqnarray}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{What If There Are Liquidity Constraints?}
-
-\pause 
-
-\begin{itemize}
-\item \FHWC~is {\it not} necessary for solution to exist
-\item Other Key Condition For Useful Solution is
-
-`Perfect Foresight Finite Value of Autarky Condition (\PFFVAC)':
-\begin{eqnarray}
-\beta \PGro^{1-\CRRA} & < & 1  
-\end{eqnarray}
-
-\item Without \RIC, Constraints Are Irrelevant
-\begin{itemize}
-\item Because Wealth Always Wants To Rise, So Constraint Never Binds
-\end{itemize}
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Liquidity Constraints and Uncertainty}
-
-\begin{itemize}
-\item Introduce permanent shocks to income
-\item Finite Value of Autarky Condition Becomes
-\input \LtxDir\EqDir/FVAC
-\end{itemize}
-
+\begin{frame}[label = Data]
+	\frametitle{Bundesbank Online Panel}
+	\begin{table}[]
+		\resizebox{0.9\textwidth}{!}{%
+			\begin{tabular}{ccccccc}
+				No   Participation &  & No Adjustment &  & Bought &  & Sold \\ 
+				\hyperlink{BOP Q7}{\beamerbutton{BOP}} &  & \hyperlink{BOP Q8}{\beamerbutton{BOP}} &  & \hyperlink{BOP Q5}{\beamerbutton{BOP}} &  & \hyperlink{BOP Q6}{\beamerbutton{BOP}} \\\hline
+				&  &  &  &  &  &  \\
+				prices fall &  & prices fall &  & prices rise &  & prices fall \\
+				&  &  &  &  &  &  \\
+				too risky &  & too risky &  &  &  & too risky \\
+				shock &  &  &  &  &  & shock \\
+				distrust &  &  &  &  &  &  \\
+				&  &  &  &  &  &  \\
+				no savings &  & no savings &  & costs &  & no savings \\
+				costs &  & costs &  & less consumption &  & need for consumption \\
+				&  &  &  & more income &  & need debt obligations \\
+				&  &  &  &  &  &  \\
+				peer-effect &  & peer-effect &  & peer-effect &  & peer-effect \\
+				&  &  &  &  &  &  \\
+				no time &  & no time &  & time &  & no time \\
+				&  &  &  &  &  &  \\
+				information &  &  &  & information &  & re-balancing \\
+				no   interest &  &  &  & savings plan &  &  \\
+				moral &  &  &  &  &  &  \\ \hline\hline
+			\end{tabular}
+		}
+	\end{table}
 \end{frame}
 
 
+\section{Results}
+\begin{frame}{General Results}
+	
+\begin{table}[]
+	\resizebox{0.9\textwidth}{!}{%
+		\begin{threeparttable}
+			\begin{tabular}{ll|ccccccccc}
+				&  &  & \begin{tabular}[c]{@{}c@{}}no participation\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}no adjustment\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}bought\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}sold\\ (IV)\end{tabular} &  \\ \hline
+				Total & \% &  & \textbf{55.1} &  & \textbf{23.0} &  & \textbf{20.0} &  & \textbf{5.8} &  \\
+				& \euro &  &  &  &  &  & 5,100 &  & -3,100 &  \\
+				&  &  &  &  &  &  &  &  &  &  \\
+				Funds & \% &  &  &  &  &  & 69.5 &  & 57.3 &  \\
+				& \euro &  &  &  &  &  & 2,100 &  & -1,900 &  \\
+				&  &  &  &  &  &  &  &  &  &  \\
+				Bonds & \% &  &  &  &  &  & 51.5 &  & 68.4 &  \\
+				& \euro &  &  &  &  &  & 2,300 &  & 0 &  \\
+				&  &  &  &  &  &  &  &  &  &  \\
+				Stocks & \% &  &  &  &  &  & 8.3 &  & 13.2 &  \\
+				& \euro &  &  &  &  &  & 0 &  & -200 &  \\
+				&  &  &  &  &  &  &  &  &  &  \\
+				Other & \% &  &  &  &  &  & 17.8 &  & 29.3 &  \\
+				& \euro &  &  &  &  &  & 600 &  & -1,100 &  \\ \hline
+				&  &  &  &  &  &  &  &  &  &  \\
+				n &  &  & 1,013 &  & 513 &  & 454 &  & 133 &   \\ \hline \hline
+			\end{tabular}
+		\end{threeparttable}
+	}
+\end{table}
+\end{frame}
 
-\subsection{The Real Problem}
-\begin{frame}
-\frametitle{Contraction Mapping Requirements}
-
-Finite Value of Autarky Condition: Same As In Liq Constr Problem!
-\input \LtxDir\EqDir/FVAC
-
-`Weak Return Impatience Condition' (\WRIC)
-
-\begin{eqnarray}
- 0 \leq & \pZero^{1/\CRRA} \PatR & < 1 \label{eq:WRIC}
-\end{eqnarray}
+\begin{frame}{General Results}
+	
+	\begin{table}[]
+		\resizebox{\textheight}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{4}{c}}
+					\hline\hline
+					&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+					&\multicolumn{1}{c}{\shortstack{No \\ Participation}}&\multicolumn{1}{c}{\shortstack{No \\ Adjustment}}&\multicolumn{1}{c}{\shortstack{Has\\ Bought}}&\multicolumn{1}{c}{\shortstack{Has\\ Sold}}\\
+					\hline
+					&                     &                     &                     &                     \\
+					college             &      -0.318\sym{***}&       0.089         &       0.292\sym{***}&       0.219\sym{*}  \\
+					&     (0.086)         &     (0.096)         &     (0.094)         &     (0.124)         \\
+					[1em]
+					female              &       0.287\sym{***}&       0.069         &      -0.467\sym{***}&      -0.370\sym{***}\\
+					&     (0.082)         &     (0.096)         &     (0.087)         &     (0.123)         \\
+					[1em]
+					$<30$               &      -0.052         &      -0.216         &       0.360\sym{***}&       0.183         \\
+					&     (0.129)         &     (0.176)         &     (0.128)         &     (0.176)         \\
+					[1em]
+					owner               &      -0.381\sym{***}&       0.307\sym{***}&       0.240\sym{***}&      -0.116         \\
+					&     (0.086)         &     (0.101)         &     (0.092)         &     (0.134)         \\
+					[1em]
+					fin illiterate &       0.457\sym{***}&      -0.218         &      -0.596\sym{***}&      -0.047         \\
+					&     (0.153)         &     (0.190)         &     (0.157)         &     (0.190)         \\
+					\hline
+					Observations        &        2022         &        2022         &        2022         &        2022         \\
+					Controls            &         Yes         &         Yes         &         Yes         &         Yes         \\
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Requirement For Existence Of A Target}
-
-Definitions: `Uncertainty-Adjusted' Growth:
-\input \LtxDir\EqDir/PGroAdj
-
-Adjusted Growth Patience Factor:
-\input \LtxDir\EqDir/PatPGroAdj
-
-Growth Impatience Condition:
-\input \LtxDir\EqDir/GICNrm~
-
-
-
-Why?  Because it can be shown that
-\begin{eqnarray}
- \lim_{m_{t} \rightarrow \infty} \Ex_{t}\left[\frac{\mRat_{t+1}}{\mRat_{t}}\right] & = & \PatPGroAdj  \label{eq:mGrowth}
-\end{eqnarray}
-
+\begin{frame}{General Results}
+	
+	\begin{table}[]
+		\resizebox{0.7\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{4}{c}}
+					\hline\hline
+					&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+					&\multicolumn{1}{c}{\shortstack{No \\ Participation}}&\multicolumn{1}{c}{\shortstack{No \\ Adjustment}}&\multicolumn{1}{c}{\shortstack{Has\\ Bought}}&\multicolumn{1}{c}{\shortstack{Has\\ Sold}}\\
+					\hline
+					&                     &                     &                     &                     \\
+					full-time           &      -0.236         &      -0.034         &       0.402\sym{**} &       0.375\sym{*}  \\
+					&     (0.145)         &     (0.173)         &     (0.162)         &     (0.218)         \\
+					[1em]
+					part-time           &      -0.120         &       0.014         &       0.254         &       0.401         \\
+					&     (0.185)         &     (0.237)         &     (0.204)         &     (0.273)         \\
+					[1em]
+					retired             &      -0.102         &       0.019         &       0.132         &       0.405\sym{*}  \\
+					&     (0.159)         &     (0.185)         &     (0.177)         &     (0.244)         \\
+					[1em]
+					self-employed       &      -0.075         &      -0.086         &       0.190         &       0.626\sym{**} \\
+					&     (0.226)         &     (0.245)         &     (0.228)         &     (0.289)         \\
+					[1em]
+					$<1500$\euro            &       0.420\sym{***}&      -0.279\sym{*}  &      -0.568\sym{***}&       0.033         \\
+					&     (0.141)         &     (0.148)         &     (0.183)         &     (0.209)         \\
+					\hline
+					Observations        &        2022         &        2022         &        2022         &        2022         \\
+					Controls            &         Yes         &         Yes         &         Yes         &         Yes         \\
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	
 \end{frame}
 
-\section{Features Of the Solution}
-\subsection{Five Propositions}
-\begin{frame}
-\frametitle{Five Propositions}
-
-\begin{enumerate}
-\item $\lim_{m_{t} \rightarrow \infty} \Ex_{t}[\cLev_{t+1}/\cLev_{t}] = \Pat$
-\item $\lim_{m_{t} \rightarrow 0} \Ex_{t}[\cLev_{t+1}/\cLev_{t}] = \infty$
-\item $\exists$ a unique target value of $m$, called $\check{m}$
-\item $\Ex_{t}[\cLev_{t+1}/\cLev_{t} | m_{t} = \check{m}] = \PGro - \epsilon$
-\item $\left(\frac{d \Ex_{t}[\cLev_{t+1}/\cLev_{t}]}{d m_{t}}\right) < 0$
-\end{enumerate}
-
-\end{frame}
-
-\subsection{The Target Saving Figure}
-\begin{frame}
-\frametitle{The Target Saving Figure}
-\centerline{\includegraphics[width=4in]{\FigDir/cGroTargetFig.pdf}}
-\end{frame}
-
-\subsection{Bounds On The Consumption Function}
-\begin{frame}
-\frametitle{Bounds On the Consumption Function}
-\centerline{\includegraphics[width=4in]{\FigDir/cFuncBounds.pdf}}
-\end{frame}
-
-\begin{frame}
-\frametitle{The Marginal Propensity to Consume}
-\centerline{\includegraphics[width=4in]{\FigDir/MPCLimits.pdf}}
-\end{frame}
-
-\subsection{The Consumption Function and Target Wealth}
-\begin{frame}
-\frametitle{The Consumption Function and Target Wealth}
-\centerline{\includegraphics[width=4in]{\FigDir/cRatTargetFig.pdf}}
-\end{frame}
-
-
-
-\section{A Small Open Buffer Stock Economy}
-
-\subsection{The Invariant Distribution}
-\begin{frame}
-\frametitle{Convergence To The Invariant Distribution}
-
-\cite{szeidlInvariant} Proves Existence of an Invariant Distribution of 
-$\mRat, \cRat, \aRat,$ etc.
-
-\centerline{\includegraphics[height=2.5in]{\FigDir/SimCDFsConverge.pdf}}
-
-
-
-\end{frame}
-
-
-\subsection{Balanced Growth Equilbrium}
-\begin{frame}
-\frametitle{Balanced Growth Equilibrium}
-
-Achieved When Cross Section Distribution Reaches Invariance
-\begin{eqnarray}
-  \YLev_{t+1}/\YLev_{t} = \CLev_{t+1}/\CLev_{t} & = & \PGro
-\end{eqnarray}
-
-Fisherian Separation Fails, Even Without Liquidity Constraints!
-\medskip\medskip
-
-\pause Insight:
-\begin{itemize}
-\item  Precautionary Saving $\approx$ Liquidity Constraints
-\item If $\constr{\cFunc}(m)$ is solution for constrained consumer, 
-\end{itemize}
-\pause
-\begin{equation}
-\lim_{ \wp \downarrow 0} \cFunc(m;\wp) = \constr{\cFunc}(m)
-\end{equation}
-
-
+\begin{frame}[label = results_nopart]
+	\frametitle{No Participation}
+	\pause
+	\begin{table}[]
+		%\caption{Summary Statistics: Reasons No Participation}
+		\label{tab:reason_nostocks}
+		\resizebox{0.9\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l|lccccccc}
+					&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
+					&  &  &  &  &  &  &  &  \\
+					\textbf{information} &  & \textbf{50.52\%} &  & 72.80\% &  & 3.25 &  & 0.58 \\
+					\textbf{no interest} &  & \textbf{47.49\%} &  & 69.88\% &  & 3.17 &  & 0.47 \\
+					distrust &  & 37.99\% &  & 63.03\% &  & 3.00 &  & 0.27 \\
+					too risky &  & 34.77\% &  & 59.35\% &  & 2.88 &  & 0.17 \\
+					no time &  & 33.37\% &  & 57.89\% &  & 2.83 &  & 0.09 \\
+					peer-effect &  & 30.22\% &  & 51.31\% &  & 2.70 &  & -0.08 \\
+					no savings &  & 30.32\% &  & 53.92\% &  & 2.73 &  & -0.12 \\
+					prices fall &  & 17.52\% &  & 51.77\% &  & 2.61 &  & -0.15 \\
+					shock &  & 23.91\% &  & 46.28\% &  & 2.53 &  & -0.22 \\
+					costs &  & 19.95\% &  & 42.88\% &  & 2.44 &  & -0.34 \\
+					moral &  & 16.27\% &  & 32.39\% &  & 2.17 &  & -0.70\\ 
+					&  &  &  &  &  &  &  &  \\\hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{regression_nopart_dem}{\beamerbutton{Demo}}
 \end{frame}
 
 \begin{frame}
-\frametitle{The MPC Out Of Permanent Shocks}
-
-\url{https://www.econ2.jhu.edu/people/ccarroll/papers/MPCPerm.pdf}
-\medskip
-
-Lots of Recent Papers Trying to Measure the MPCP
-
-\medskip
-Paper Proves:
-
-\begin{itemize}
-\item MPCP $< 1$
-\item But not a lot less:
-\begin{itemize}
-\item 0.75 to 0.95 (annual rate) for wide range of parameter values
-\end{itemize}
-\end{itemize}
-
+	\frametitle{No Participation: PCA}
+	\begin{table}[]
+		\resizebox{0.9\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{lcclcclc}
+					\hline
+					\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ \onslide<2->{risk aversion}\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ \onslide<3->{lack of resources}\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   3\\ \onslide<4->{lack of savings}\end{tabular}} \\ \cline{1-2} \cline{4-5} \cline{7-8} 
+					&  &  &  &  &  &  &  \\
+					\onslide<2->{too risky & 0.42} &  & \onslide<3->{no interest & 0.47} &  & \onslide<4->{no savings & 0.64} \\
+					\onslide<2->{distrust & 0.42} &  & \onslide<3->{information & 0.40} &  & \onslide<4->{moral & -0.60} \\
+					\onslide<2->{shock & 0.37} &  & \onslide<3->{no time & 0.40} &  &  &  \\
+					\onslide<2->{prices fall & 0.35} &  & \onslide<3->{no savings & 0.34} &  &  &  \\
+					&  &  & \onslide<3->{shock & -0.33} &  &  &  \\
+					&  &  &  &  &  &  &  \\ \hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
 \end{frame}
 
-\section{Conclusions}
+
+\begin{frame}[label = regression_pca_noadjust_dem]
+	\frametitle{No Participation: PCA}
+	\begin{table}[] \centering
+		\resizebox{0.7\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{6}c}
+					\hline\hline
+					\input{\TableDir/regression_pca_nopart_dem_input}
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{regression_pca_noadjust_dem_control}{\beamerbutton{Controls}}
+\end{frame}
+
+
 \begin{frame}
-
-\begin{itemize}
-\item Defined Conditions Under Which Widely Used Problem Has Solution
-\begin{itemize}
-\item Finite Value of Autarky Condition Guarantees Contraction (with \WRIC)
-\item Growth Impatience Condition Prevents $m \rightarrow \infty$
-\end{itemize}
-\item Economy Of Buffer Stock Consumers Exhibits Balanced Growth
-\begin{itemize}
-\item Even In Absence of General Equilibrium Adj of Interest Rate
-\end{itemize}
-\end{itemize}
-
+	\frametitle{No Participation}
+	\begin{block}{Takeaway \#1: No Participation}
+		{
+			\begin{enumerate}
+				\item Lack of information and interest are dominant factors
+				\item Importance of risk increases with age, lack of resources decrease in age, and lack of savings decreases with income
+			\end{enumerate}
+		}
+	\end{block}
+	
 \end{frame}
 
-\def\newblock{\hskip .11em plus .33em minus .07em}
+\begin{frame}[label=results_noadjust]
+	\frametitle{No Adjustment}
+	\pause
+	\begin{table}[]
+		\resizebox{\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l|lccccccc}
+					&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
+					&  &  &  &  &  &  &  &  \\
+					too risky &  & 20.47\% &  & 55.52\% &  & 2.53 &  & 0.31 \\
+					no time &  & 17.05\% &  & 49.39\% &  & 2.38 &  & 0.11 \\
+					prices fall &  & 9.47\% &  & 48.62\% &  & 2.39 &  & 0.09 \\
+					no savings &  & 18.25\% &  & 42.20\% &  & 2.30 &  & -0.06 \\
+					peer-effect &  & 17.24\% &  & 36.07\% &  & 2.12 &  & -0.19 \\
+					costs &  & 10.67\% &  & 32.40\% &  & 2.09 &  & -0.28 \\ 
+					&  &  &  &  &  &  &  &  \\\hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{regression_noadjust_dem}{\beamerbutton{Demo}}
+\end{frame}
 
 \begin{frame}
-
-\renewcommand{\bibsection}{\subsubsection*{\bibname }}
-
-\tiny 
-
-\bibliography{\texnameMaster,\econtexBib}
-
+	\frametitle{No Adjustment: PCA}
+	\begin{table}[]
+		% \caption{ Principal Component Analysis: No Adjustment}
+		% \label{tab:reason_unchanged}
+		\resizebox{0.7\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{llcll}
+					\hline
+					\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ bad timing\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ time constraint\end{tabular}} \\ \cline{1-2} \cline{4-5} 
+					& \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} \\
+					too risky & 0.63 &  & no savings & -0.70 \\
+					prices fall & 0.58 &  & peer effect & 0.55 \\
+					costs & 0.49 &  & no time & 0.45 \\
+					&  &  &  &  \\ \hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
 \end{frame}
+
+\begin{frame}
+	\frametitle{No Adjustment}
+	\begin{block}{Takeaway \#2: No Adjustment}
+		{
+			\begin{enumerate}
+				\item Risk, time, and prices fall are dominant factors
+				\item Either bad timing or time constraint
+				\item Needs more research
+			\end{enumerate}
+		}
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}[label = results_bought]
+	\frametitle{Buyer}
+	\pause
+	\begin{table}[]
+		\resizebox{\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l|lccccccc}
+					&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
+					&  &  &  &  &  &  &  &  \\
+					\textbf{plan} &  & \textbf{43.54\%} &  & 62.07\% &  & 2.76 &  & 0.92 \\
+					\textbf{prices rise} &  & \textbf{38.74\%} &  & 64.08\% &  & 2.79 &  & 0.90 \\
+					time &  & 8.09\% &  & 26.59\% &  & 1.77 &  & -0.07 \\
+					information &  & 7.60\% &  & 24.22\% &  & 1.70 &  & -0.15 \\
+					less   consumption &  & 3.88\% &  & 18.73\% &  & 1.58 &  & -0.29 \\
+					more income &  & 4.33\% &  & 19.88\% &  & 1.57 &  & -0.31 \\
+					peer-effect &  & 4.15\% &  & 13.87\% &  & 1.49 &  & -0.36 \\
+					bank fees &  & 0.38\% &  & 3.52\% &  & 1.21 &  & -0.65 \\ 
+					&  &  &  &  &  &  &  &  \\\hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{regression_bought_dem}{\beamerbutton{Demo}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Buyer: active vs passive}
+	
+	\begin{table}[]
+		\resizebox{1.2\textheight}{!}{%
+			\begin{tabular}{l*{3}{c}}
+				\hline
+				%\input{regression_bought_active_passive_1_input}
+				                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+				&\multicolumn{1}{c}{\shortstack{active}}&\multicolumn{1}{c}{\shortstack{passive}}\\
+				\hline
+				&                     &                     \\
+				owner               &       \textbf{0.565\sym{***}}&      -0.401\sym{**} \\
+				&     (0.196)         &     (0.192)         \\
+				[1em]
+				$<30$               &       \textbf{0.624\sym{**}} &      -0.347         \\
+				&     (0.254)         &     (0.261)         \\
+				[1em]
+				first time          &       \textbf{0.627\sym{*}}  &      -0.744\sym{**} \\
+				&     (0.351)         &     (0.353)         \\
+				[1em]
+				bought \& sold      &       \textbf{0.669\sym{***}}&      -0.818\sym{***}\\
+				&     (0.206)         &     (0.206)         \\
+				&&\\
+				&&\\
+				&&\\
+				&&\\
+				&&\\
+				&&\\
+				\hline
+				Observations        &         454         &         454         \\
+				Controls            &         Yes         &         Yes         \\
+				\hline\hline
+			\end{tabular}
+			\hspace{4em}
+			\pause
+			\begin{tabular}{l*{3}{c}}
+				\hline
+				%\input{regression_bought_active_passive_2_input}
+				                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+				&\multicolumn{1}{c}{\shortstack{active}}&\multicolumn{1}{c}{\shortstack{passive}}\\
+				\hline
+				&                     &                     \\
+				time                &       \textbf{0.703\sym{***}}&      -1.152\sym{***}\\
+				&     (0.126)         &     (0.136)         \\
+				[1em]
+				information         &       \textbf{0.206\sym{*}}  &      -0.899\sym{***}\\
+				&     (0.121)         &     (0.128)         \\
+				[1em]
+				less consumption    &       0.224         &      -0.820\sym{***}\\
+				&     (0.170)         &     (0.167)         \\
+				[1em]
+				more income         &       \textbf{0.415\sym{**}} &      -1.120\sym{***}\\
+				&     (0.172)         &     (0.157)         \\
+				[1em]
+				costs               &       \textbf{0.871\sym{***}}&      -2.069\sym{***}\\
+				&     (0.270)         &     (0.301)         \\
+				[1em]
+				peer effect         &       \textbf{0.742\sym{***}}&      -1.534\sym{***}\\
+				&     (0.166)         &     (0.170)         \\
+				\hline
+				Observations        &         431         &         431         \\
+				Controls            &         Yes         &         Yes         \\
+				\hline\hline
+			\end{tabular}
+			
+		}
+	\end{table}
+	
+\end{frame}
+
+\begin{frame}{Buyer: By asset type}
+	\begin{table}[]
+		\centering
+		\resizebox{0.7\textwidth}{!}{
+			\begin{threeparttable}
+				\begin{tabular}{l|ccccccccc}
+					%\input{regression_bought_asset_1_input}
+					                    &            &\multicolumn{1}{c}{(1)}&            &\multicolumn{1}{c}{(2)}&            &\multicolumn{1}{c}{(3)}&            &\multicolumn{1}{c}{(4)}\\
+					&            &\multicolumn{1}{c}{\shortstack{Funds}}&            &\multicolumn{1}{c}{\shortstack{Bonds}}&            &\multicolumn{1}{c}{\shortstack{Stocks}}&            &\multicolumn{1}{c}{\shortstack{Other}}\\
+					\hline
+					&            &                     &            &                     &            &                     &            &                     \\
+					has Funds           &            &       \onslide<2->{\textbf{2.527\sym{***}}&            &      -0.699\sym{**} &            &       1.219\sym{**} &            &      -0.771\sym{*}}  \\
+					&            &     \onslide<2->{(0.317)         &            &     (0.327)         &            &     (0.553)         &            &     (0.408)}         \\
+					[1em]
+					has Bonds           &            &       \onslide<2->{0.063         &            &       \textbf{1.432\sym{***}}&            &       0.538         &            &       0.036}         \\
+					&            &     \onslide<2->{(0.341)         &            &     (0.263)         &            &     (0.399)         &            &     (0.382)}         \\
+					[1em]
+					has Stocks          &            &      \onslide<2->{-0.241         &            &       0.203         &            &       \textbf{2.192\sym{***}}&            &      -0.057}         \\
+					&            &     \onslide<2->{(0.380)         &            &     (0.389)         &            &     (0.395)         &            &     (0.490)}         \\
+					[1em]
+					has Other           &            &      \onslide<2->{-0.321         &            &       0.901\sym{***}&            &       0.150         &            &       \textbf{2.027\sym{***}}}\\
+					&            &     \onslide<2->{(0.329)         &            &     (0.325)         &            &     (0.427)         &            &     (0.349)}         \\
+					[1em]
+					first time          &            &       \onslide<2->{0.570         &            &       1.098\sym{***}&            &       0.000         &            &       0.900\sym{*}}  \\
+					&            &     \onslide<2->{(0.414)         &            &     (0.379)         &            &         (.)         &            &     (0.461)}         \\
+					[1em]
+					bought \& sold      &            &      \onslide<2->{-0.419\sym{*}  &            &       0.452         &            &      -0.598\sym{*}  &            &      -0.139}         \\
+					&            &     \onslide<2->{(0.222)         &            &     (0.276)         &            &     (0.326)         &            &     (0.316)}         \\
+					\hline
+					Observations        &            &         454         &            &         454         &            &         430         &            &         454         \\
+					Controls            &            &         Yes         &            &         Yes         &            &         Yes         &            &         Yes         \\
+					
+					\hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+\end{frame}
+
+\begin{frame}{Buyer: By asset type}
+	\begin{table}[]
+		\centering
+		\resizebox{0.7\textwidth}{!}{
+			\begin{threeparttable}
+				\begin{tabular}{l|ccccccccc}
+					%\input{regression_bought_asset_2_input}
+					                    &            &\multicolumn{1}{c}{\shortstack{Funds}}&            &\multicolumn{1}{c}{\shortstack{Bonds}}&            &\multicolumn{1}{c}{\shortstack{Stocks}}&            &\multicolumn{1}{c}{\shortstack{Other}}\\
+					\hline
+					&            &                     &            &                     &            &                     &            &                     \\
+					value funds         &            &       \textbf{0.108\sym{**}} &            &      -0.085\sym{*}  &            &      -0.127\sym{*}  &            &      -0.021         \\
+					&            &     (0.047)         &            &     (0.051)         &            &     (0.070)         &            &     (0.059)         \\
+					[1em]
+					value bonds         &            &      -0.143\sym{**} &            &       \textbf{0.206\sym{***}}&            &      -0.040         &            &      -0.191\sym{***}\\
+					&            &     (0.061)         &            &     (0.051)         &            &     (0.075)         &            &     (0.067)         \\
+					[1em]
+					value stocks        &            &       0.010         &            &      -0.032         &            &       0.045         &            &      -0.035         \\
+					&            &     (0.079)         &            &     (0.079)         &            &     (0.067)         &            &     (0.104)         \\
+					[1em]
+					value other         &            &      -0.088         &            &      -0.142\sym{**} &            &      -0.170         &            &       \textbf{0.193\sym{***}}\\
+					&            &     (0.062)         &            &     (0.062)         &            &     (0.112)         &            &     (0.071)         \\
+					\hline
+					Observations        &            &         454         &            &         454         &            &         430         &            &         454         \\
+					Controls            &            &         Yes         &            &         Yes         &            &         Yes         &            &         Yes         \\
+					\hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Buyer}
+	\begin{block}{Takeaway \#3: Buyer}
+		{
+			\begin{enumerate}
+				\item Active vs Passive buyers
+				\item Active buyers are younger, richer and respond to additional information, time, income, costs, and peer effects.
+				\item Respondents bought the asset type they already held
+			\end{enumerate}
+		}
+	\end{block}
+\end{frame}
+
+\begin{frame}[label = regression_bought_expec_pp]
+	\frametitle{House Price Expectations and Buyer}
+	\vspace{-1em}
+	\begin{table}[htbp]\centering
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{l*{6}{c}}
+				\hline\hline
+				%\input{regression_has_bought_expec_pp}
+				&\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+				&\multicolumn{1}{c}{\shortstack{All}}&\multicolumn{1}{c}{\shortstack{Owner}}&\multicolumn{1}{c}{\shortstack{Renter}}&\multicolumn{1}{c}{\shortstack{All}}&\multicolumn{1}{c}{\shortstack{Owner}}&\multicolumn{1}{c}{\shortstack{Renter}}\\
+				\hline
+				&                     &                     &                     &                     &                     &                     \\
+				housing quali       &      \onslide<2->{-0.195\sym{***}}&                     &                     &                     &                     &                     \\
+				&     \onslide<2->{(0.050)}         &                     &                     &                     &                     &                     \\
+				[1em]
+				prop quali          &                     &      \onslide<3->{-0.146\sym{***}}&                     &                     &                     &                     \\
+				&                     &     \onslide<3->{(0.055)}         &                     &                     &                     &                     \\
+				[1em]
+				rent quali          &                     &                     &      \onslide<3->{-0.150\sym{*}}  &                     &                     &                     \\
+				&                     &                     &     \onslide<3->{(0.079)}         &                     &                     &                     \\
+				[1em]
+				house price PE    &                     &                     &                     &      \onslide<4->{-0.026\sym{***}}&      \onslide<4->{-0.011}         &      \onslide<4->{-0.049\sym{***}}\\
+				&                     &                     &                     &     \onslide<4->{(0.008)}         &     \onslide<4->{(0.010)}         &     \onslide<4->{(0.014)}         \\
+				\hline
+				Observations        &        2019         &        1263         &         759         &        1880         &        1176         &         704         \\
+				Controls            &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+				\hline\hline
+			\end{tabular}
+		}
+	\end{table}
+	\hyperlink{regression_bought_expec_pp_cond}{\beamerbutton{Conditional on Stockholdings}}
+\end{frame}
+
+\begin{frame}[label = regression_bought_expec_infl]
+	\frametitle{Inflation Expectations and Buyer}
+	\vspace{-1em}
+	\begin{table}[htbp]\centering
+		\resizebox{0.9\textwidth}{!}{%
+			\begin{tabular}{l*{8}{c}}
+				\hline\hline
+				%\input{regression_has_bought_expec_infl}
+				                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         &\multicolumn{1}{c}{(7)}         &\multicolumn{1}{c}{(8)}         \\
+				\hline
+				&                     &                     &                     &                     &                     &                     &                     &                     \\
+				inflation quali     &       \onslide<2->{-0.235\sym{***}}&                     &                     &                     &                     &                     &                     &                     \\
+				&      \onslide<2->{(0.073)}         &                     &                     &                     &                     &                     &                     &                     \\
+				[1em]
+				inflation PE   &                     &      \onslide<3->{-0.098\sym{***}}&      \onslide<4->{-0.097\sym{***}}&      \onslide<4->{-0.093\sym{***}}&                     &                     &                     &                     \\
+				&                     &     \onslide<3->{(0.019)}         &     \onslide<4->{(0.018)}         &     \onslide<4->{(0.020)}         &                     &                     &                     &                     \\
+				[1em]
+				fin illiterate:     &                     &                     &      \onslide<4->{-0.366}         &                     &                     &                     &                     &                     \\
+				inflation $>|30|$   &                     &                     &     \onslide<4->{(0.227)}         &                     &                     &                     &                     &                     \\
+				[1em]
+				fin illiterate:     &                     &                     &                     &      \onslide<4->{-0.183}         &                     &                     &                     &                     \\
+				inflation $>|10|$   &                     &                     &                     &     \onslide<4->{(0.214)}         &                     &                     &                     &                     \\
+				[1em]
+				$0<$ inflation $<10$&                     &                     &                     &                     &      \onslide<5->{-0.116\sym{***}}&                     &                     &                     \\
+				&                     &                     &                     &                     &     \onslide<5->{(0.025)}         &                     &                     &                     \\
+				[1em]
+				$0<$ inflation $<5$ &                     &                     &                     &                     &                     &      \onslide<5->{-0.141\sym{***}}&                     &                     \\
+				&                     &                     &                     &                     &                     &     \onslide<5->{(0.034)}         &                     &                     \\
+				[1em]
+				inflation prob exp  &                     &                     &                     &                     &                     &                     &      \onslide<6->{-0.049\sym{***}}&      \onslide<6->{-0.088\sym{***}}\\
+				&                     &                     &                     &                     &                     &                     &     \onslide<6->{(0.017)}         &     \onslide<6->{(0.019)}         \\
+				[1em]
+				inflation prob std   &                     &                     &                     &                     &                     &                     &                     &      \onslide<6->{-0.564\sym{***}}\\
+				&                     &                     &                     &                     &                     &                     &                     &     \onslide<6->{(0.191)}         \\
+				\hline
+				Observations        &        2018         &        1883         &        1883         &        1883         &        1827         &        1663         &        1720         &        1720         \\
+				Controls            &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         &         Yes         \\
+				\hline\hline
+			\end{tabular}
+		}
+	\end{table}
+	\hyperlink{regression_bought_infl_cond}{\beamerbutton{Conditional on Stockholdings}}\hyperlink{regression_expec_infl}{\beamerbutton{interest rate vs inverted PC}}
+\end{frame}
+
+\begin{frame}{Expectations and Buyer}
+	\begin{block}{Takeaway \#4: Expectations}
+		{
+			\begin{enumerate}
+				\item Higher houseprice expectations crowds out financial asset investments
+				\item Higher inflation expectations reduces probability to buy
+			\end{enumerate}
+		}
+	\end{block}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+	This paper asks households about their financial investment behavior during the covid-19 pandemic and finds:
+	\vspace{1em}
+	\begin{enumerate}
+		\item \textbf{Participation costs}: lack of information and interest
+		\item \textbf{Adjustment costs}: risk and time constraint
+		\item \textbf{Buyers} invested either because of opportunity or savingsplan. 
+		\item Higher house price and inflation \textbf{expectations} reduce the likelihood to invest
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}[plain, noframenumbering]
+	
+	\begin{itemize}
+		\item[] \textbf{THANKS for your attention}
+		\bigskip
+		\item[] I am grateful for comments and suggestions
+		\smallskip
+		\item[] \href{mailto:amonnin1@jhu.edu}{\texttt{amonnin1@jhu.edu} }
+	\end{itemize}
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label = results_sold, noframenumbering]
+	\frametitle{Seller}
+	\begin{table}[]
+		\resizebox{\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l|lccccccc}
+					&  & \begin{tabular}[c]{@{}c@{}}Fully agree\\ (I)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}At least\\ rather agree\\ (II)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Mean\\ (III)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}Standardized\\ (III)\end{tabular} \\ \hline
+					&  &  &  &  &  &  &  &  \\
+					\textbf{prices fall} &  & 12.46\% &  & 40.94\% &  & 2.29 &  & 0.84 \\
+					\textbf{re-balancing} &  & 23.93\% &  & 44.36\% &  & 2.25 &  & 0.71 \\
+					shock &  & 6.83\% &  & 26.54\% &  & 1.79 &  & 0.15 \\
+					too risky &  & 6.96\% &  & 23.06\% &  & 1.72 &  & 0.06 \\
+					need   consumption &  & 6.84\% &  & 17.60\% &  & 1.55 &  & -0.17 \\
+					need debt   obligations &  & 5.94\% &  & 13.38\% &  & 1.43 &  & -0.31 \\
+					no time &  & 4.02\% &  & 11.68\% &  & 1.38 &  & -0.35 \\
+					peer-effect &  & 0.25\% &  & 10.79\% &  & 1.34 &  & -0.39 \\
+					need support   friends/family &  & 1.60\% &  & 6.79\% &  & 1.23 &  & -0.54\\ 
+					&  &  &  &  &  &  &  &  \\\hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{regression_sold_dem}{\beamerbutton{Demo}}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+	\frametitle{Seller}
+	\begin{table}[]
+		\resizebox{\textwidth}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{llcllclcclc}
+					\hline
+					\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ Crisis\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ Lack of Resources\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   3\\ Social Component\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   4\\ Rebalancing\end{tabular}} \\ \cline{1-2} \cline{4-5} \cline{7-8} \cline{10-11} 
+					& \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} &  &  &  &  &  &  \\
+					too risky & 0.59 &  & \begin{tabular}[c]{@{}l@{}}need debt \\ obligations\end{tabular} & 0.66 &  & peer effect & 0.75 &  & rebalancing & 0.94 \\
+					shock & 0.56 &  & need consumption & 0.65 &  & \begin{tabular}[c]{@{}l@{}}need support\\ friends and \\ family\end{tabular} & 0.56 &  &  &  \\
+					no time & 0.44 &  &  &  &  &  &  &  &  &  \\
+					prices fall & 0.34 &  &  & \multicolumn{1}{c}{} &  &  &  &  &  &  \\
+					& \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} &  &  &  &  &  &  \\ \hline \hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+\end{frame}
+
+\begin{frame}[noframenumbering]
+	\frametitle{Seller}
+	\begin{block}{Takeaway \#5: Seller}
+		{
+			\begin{enumerate}
+				\item prices fall and re-balancing seem to be most important
+				\item Shock and riskiness drives some households out
+			\end{enumerate}
+		}
+	\end{block}
+	
+\end{frame}
+
+\begin{frame}[label = sp500, noframenumbering]
+	\frametitle{Motivation (2): Stock market turbulence due to Covid-19}
+	\begin{figure}
+		\centering
+		\includegraphics[height=6cm ]{\FigDir/sp500.png}
+	\end{figure}
+	\hyperlink{motivation_2}{\beamerbutton{back}}
+\end{frame}
+
+\begin{frame}[label = eurostoxx50, noframenumbering]
+	\frametitle{Motivation (2): Stock market turbulence due to Covid-19}
+	\begin{figure}
+		\centering
+		\includegraphics[height=6cm ]{\FigDir/eurostoxx50.png}
+	\end{figure}
+	\hyperlink{motivation_2}{\beamerbutton{back}}
+\end{frame}
+
+
+\begin{frame}[label = BOP Q1, noframenumbering]
+	\frametitle{BOP Questions (1)}
+	\hyperlink{Timeline}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q1_full.PNG}
+\end{frame}
+
+\begin{frame}[label = BOP Q2, noframenumbering]
+	\frametitle{BOP Questions (2)}
+	\hyperlink{Timeline}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q2_full.PNG}
+\end{frame}
+
+\begin{frame}[label = BOP Q3, noframenumbering]
+	\frametitle{BOP Questions (3)}
+	\hyperlink{Timeline}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q3_full.PNG}
+\end{frame}
+
+\begin{frame}[label = BOP Q4, noframenumbering]
+	\frametitle{BOP Questions (4)}
+	\hyperlink{Timeline}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q4_full.PNG}
+\end{frame}
+
+\begin{frame}[label = BOP Q5, noframenumbering]
+	\frametitle{BOP Questions (5)}
+	\hyperlink{Data}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q5_full.PNG}
+\end{frame}
+
+\begin{frame}[label = BOP Q6, noframenumbering]
+	\frametitle{BOP Questions (6)}
+	\hyperlink{Data}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q6_full.PNG}
+\end{frame}
+
+\begin{frame}[label = BOP Q7, noframenumbering]
+	\frametitle{BOP Questions (7)}
+	\hyperlink{Data}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q7_full.PNG}
+\end{frame}
+
+\begin{frame}[label = BOP Q8, noframenumbering]
+	\frametitle{BOP Questions (8)}
+	\hyperlink{Data}{\beamerbutton{back}}
+	\centering
+	\includegraphics[height=7cm]{\FigDir/Q8_full.PNG}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[plain, label = regression_nopart_dem, noframenumbering]
+	\begin{table}[] \centering
+		\resizebox{1.2\textheight}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{11}{c}}
+					\hline\hline
+					\input{\TableDir/regression_nopart_dem_input}
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{results_nopart}{\beamerbutton{back}}
+\end{frame}
+
+\begin{frame}[plain,label = regression_pca_noadjust_dem_control, noframenumbering]
+	\begin{table}[] \centering
+		\resizebox{0.6\textheight}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{6}c}
+					\hline\hline
+					\input{\TableDir/regression_pca_nopart_dem_ctrl_input}
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{regression_pca_noadjust_dem}{\beamerbutton{back}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain, label = regression_noadjust_dem, noframenumbering]
+	\begin{table}[] \centering
+		\resizebox{0.8\textheight}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{14}{c}}
+					\hline\hline
+					\input{\TableDir/regression_noadjust_dem_input}
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{results_noadjust}{\beamerbutton{back}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain, label = regression_bought_dem, noframenumbering]
+	\begin{table}[] \centering
+		\resizebox{\textheight}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{16}{c}}
+					\hline\hline
+					\input{\TableDir/regression_bought_dem_input}
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{results_bought}{\beamerbutton{back}}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[plain, label = regression_sold_dem, noframenumbering]
+	\begin{table}[] \centering
+		\resizebox{\textheight}{!}{%
+			\begin{threeparttable}
+				\begin{tabular}{l*{18}{c}}
+					\hline\hline
+					\input{\TableDir/regression_sold_dem_input}
+					\hline\hline
+				\end{tabular}
+			\end{threeparttable}
+		}
+	\end{table}
+	\hyperlink{results_sold}{\beamerbutton{back}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[label = regression_bought_expec_pp_cond, noframenumbering]
+	\frametitle{House Price Expectations and Buyer}
+	\vspace{-1em}
+	\begin{table}[htbp]\centering
+		\resizebox{\textwidth}{!}{%
+			\begin{tabular}{l*{6}{c}}
+				\hline\hline
+				\input{\TableDir/regression_bought_expec_pp_cond_input}
+				\hline\hline
+			\end{tabular}
+		}
+	\end{table}
+	\hyperlink{regression_bought_expec_pp}{\beamerbutton{back}}
+\end{frame}
+
+\begin{frame}[label = regression_bought_infl_cond, noframenumbering]
+	\frametitle{Inflation Expectations and Buyer}
+	\vspace{-1em}
+	\begin{table}[htbp]\centering
+		\resizebox{0.9\textwidth}{!}{%
+			\begin{tabular}{l*{8}{c}}
+				\hline\hline
+				\input{\TableDir/regression_bought_expec_infl_cond_input}
+				\hline\hline
+			\end{tabular}
+		}
+	\end{table}
+	\hyperlink{regression_bought_expec_infl}{\beamerbutton{back}}
+\end{frame}
+
+\begin{frame}[label = regression_expec_infl, noframenumbering]
+	\frametitle{Inflation Expectations and Buyer}
+	\vspace{-1em}
+	\begin{table}[htbp]\centering
+		\resizebox{0.9\textwidth}{!}{%
+			\begin{tabular}{l*{8}{c}}
+				\hline\hline
+				\input{\TableDir/regression_expec_infl_input}
+				\hline\hline
+			\end{tabular}
+		}
+	\end{table}
+	\hyperlink{regression_bought_expec_infl}{\beamerbutton{back}}
+\end{frame}
+
 \end{document}\endinput
 
 % Local Variables:
