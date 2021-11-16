@@ -1,0 +1,14 @@
+\begin{table}[]
+	\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Regression Table: Inflation expectations: Stagflation vs Central bank intervention) \label{tab:reg_expec_infl}}
+	\resizebox{\textwidth}{!}{%
+		\begin{threeparttable}
+			\begin{tabular}{l*{10}{c}}
+				\hline\hline
+				\input{\TableDir/regression_expec_infl_input.tex}
+				\hline\hline
+			\end{tabular}
+		\end{threeparttable}
+	}
+\end{table}

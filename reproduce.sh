@@ -86,3 +86,24 @@ fi
 
 echo ''
 
+# Copy tables from shared folder  into tables  directory
+#cd /media/sf_VirtualBox/output/table
+#for tables in *.tex; do
+#    echo "Copying tables from Shared folder into Table directory"
+#    mv -f /media/sf_VirtualBox/output/table/$tables Tabledir
+    # cp \SharedFolder/table/*. TableDir/
+    #cp -R . TableDir/
+#done
+
+#cp -R . TableDir/
+#cd .. #go to home directory now try
+#cd /Github/table
+#pwd
+
+cd SharedFolder
+cd SharedFolder/table
+
+cd /media/sf_VirtualBox/output/table
+pwd
+
+# does not work '/home/jovyan/work'....?!
