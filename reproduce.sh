@@ -9,11 +9,41 @@ scriptDir="$(dirname "$0")"
 
 # Copy tables from shared folder  into tables  directory
 #cd /media/sf_VirtualBox/output/table
-for tables in *.tex; do
-    echo "Copying tables from Shared folder into Table directory"
-    cp \SharedFolder/table/. TableDir/
-done
+#for tables in /media/sf_VirtualBox/output/table/*.tex; do
+#    echo "Copying tables from Shared folder into Table directory"
+#    cp -R $tables TableDir
+    #mv -!f /media/sf_VirtualBox/output/table/$tables Tabledir
+    #cp \SharedFolder/table/*. TableDir/
+    #cp -R . TableDir/
+#done
+read -r -p "Do you have permission to shared folder in VirtualBox? [y/n]" input
 
+case $input in
+    [yY][eE][sS]|[yY])
+    echo "Copying tables from Shared folder into Table directory"
+    cp -R /media/sf_VirtualBox/output/table/. Tables
+    ;;
+    [nN][oO]|[nN])
+    echo "Tables won't be updated"
+    ;;
+    esac
+    
+
+#echo "Do you have permission to shared folder in VirtualBox?"
+#select yn in "Yes" "No"
+#	     case $yn in
+#		 Yes ) echo "Copying tables from Shared folder into Table directory"
+#		       cp -R /media/sf_VirtualBox/output/table/*.tex Tabledir;;
+#		 No ) echo "Tables won't be updated";;
+#		 esac
+#done
+		   
+		   
+
+
+# back to this directory
+#cd "$scriptDir/.."
+#cd /home/econ-ark/GitHub/AMonninger/CompMethods2021-MonningerAB
 echo '' ; echo 'Reproduce text of paper:' ; echo ''
 
 texname=ProjectABM
@@ -22,6 +52,7 @@ output_directory='LaTeX'
 # Make figures that get made by executing a latex file
 # (they should have a filename ending in Make.tex)
 cd Figures
+#cd FigDir
 # For this paper, only the tikz figures need to be made by pdflatex - others are made by python
 for fName_tikzMake in *Make.tex; do # names of all files ending in Make.tex
     echo "Processing figure $fName_tikzMake"
@@ -85,25 +116,3 @@ else
 fi
 
 echo ''
-
-# Copy tables from shared folder  into tables  directory
-#cd /media/sf_VirtualBox/output/table
-#for tables in *.tex; do
-#    echo "Copying tables from Shared folder into Table directory"
-#    mv -f /media/sf_VirtualBox/output/table/$tables Tabledir
-    # cp \SharedFolder/table/*. TableDir/
-    #cp -R . TableDir/
-#done
-
-#cp -R . TableDir/
-#cd .. #go to home directory now try
-#cd /Github/table
-#pwd
-
-cd SharedFolder
-cd SharedFolder/table
-
-cd /media/sf_VirtualBox/output/table
-pwd
-
-# does not work '/home/jovyan/work'....?!
