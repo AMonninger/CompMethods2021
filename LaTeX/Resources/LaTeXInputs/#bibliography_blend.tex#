@@ -8,7 +8,7 @@
   \setboolean{NeitherExists}{false} % Default is true
 }{
   % else
- \setboolean{AddRefsExists}{false} % No added refs exist so defaults will be used
+  \setboolean{AddRefsExists}{false} % No added refs exist so defaults will be used
   \setboolean{BothExist}{false}     % Default is that Add-Refs and economics.bib both exist
 }
 

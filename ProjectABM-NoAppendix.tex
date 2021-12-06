@@ -218,6 +218,8 @@ Additionally, a macroeconomic shock can also increase uncertainty in the period 
 \paragraph{Participation Costs}
 Early models such as \cite{vissing_2003, HM2003portfolio, GM2005portfolio} impose a small participation cost to match empirical moments. As not everyone has the same resources, only a fraction of households will participate in equity markets. While direct costs such as setting up a brokerage account only makes a small part of it, a large literature explores indirect costs.
 
+\textbf{Indirect costs: No direct monetary value such as brokerage fees... But more psycological costs or barriers which need to be overcome. In line with the literature, I still will call them \textit{costs}, although it should be more thought of as \textit{barrier}}.
+
 \paragraph{Information/Financial Literacy}
 The first big bulk focuses on information costs. \cite{king_leape_1987asset} uses the Survey of Consumer Financial Decisions and show that more than one third of non-participants argue that 'they did not know enough about it' as a reason of their non-participation. These can consist of unawareness of financial products such as different stocks and funds and financial literacy. For the former \cite{guiso_jappelli_2005} finds that soecioeconomic variables such as education, wealth, income, year of birth, as well as long-term bank relations, social interaction and newspaper readership increases the awareness which then increases the probability of stock market participation. Information issues appear through financial illiteracy. \cite{lusardi_mitchell_2011financial_literacy} show that many households lacking knowledge of basic principles. In an overview, they report that women are less financially literate -- which leads to lower stock holding participation (\cite{almenberg_2015gender}) -- and higher educated are also more financial literate. Additional factors are ethnic/racial and regional differences. Several papers show the strong link between financial literacy and stock market participation. For instance, \cite{guiso_japelli_2002household_book} use Italian data, \cite{hochguertel_et_al_2002household,vanrooij_et_al_2011} Dutch and \cite{borsch_eymann_2000household} German data.
 
@@ -349,6 +351,7 @@ Table \ref{tab:sum_types_dem} reports a demographic breakdown for each type and 
 
 \input{\TableDir/regression_types_dem}
 
+\textbf{ADD: Comparison sample with PHF wave 3 (2017) sample to check representativeness}
 \subsection{Reasons of behavior}
 In the previous section, we have seen that around 1,500 individuals did adjust their financial asset holdings, while a quarter of all observations bought and/or sold some assets. This section investigates the underlying reasons of the respective behavior.
 
@@ -393,11 +396,13 @@ Table \ref{tab:reg_pca_nopart_dem} shows that the first component or \textit{ris
 
 \input{\TableDir/reg_pca_nopart_dem}
 
+\textbf{By including experienced stock returns using the specification of \cite{malmendier_2011} Only the second component is still driven by age. The risk aversion has no demographic factor which is significant.}
+
 \paragraph{Take away \#1}
 A result of this exercise is that many factors play an important role in the decision of no participation. Lack of information and interest seems very important, followed by risk factors and time constraints. To reduce number of factors, these reasons can be grouped into three components which are driven by either a lifecycle pattern or by income levels. %Hence, if someone wants to model stock market behavior, these mechanisms can be easily implemented.
 
 \subsubsection{Reasons No Adjustment}
-Next, I focus on individuals who held some financial assets, but did not buy or sell between March and August. I focus on the question why they did not buy any assets\footnote{The question reads: 'Why did you decide not to buy any more assets during the coronavirus pandemic'}. These reasons refer more to 'adjustment costs', meaning these households overcame the 'participation costs' already, but some factors prevent them from investing \textit{more}.% Or rephrasing it, the question is \textit{Why don't households adjust their portfolio?}
+Next, I focus on individuals who held some financial assets, but did not buy or sell between March and August. I focus on the question why they did not buy any assets\footnote{The question reads: 'Why did you decide not to buy any more assets during the coronavirus pandemic'}. \textbf{WHY FOCUS ONLY ON NOT BOUGHT?! 'avoid regret'}These reasons refer more to 'adjustment costs', meaning these households overcame the 'participation costs' already, but some factors prevent them from investing \textit{more}.% Or rephrasing it, the question is \textit{Why don't households adjust their portfolio?}
 
 \input{\TableDir/reason_noadjust}
 
@@ -466,6 +471,7 @@ Lastly, households who rebalanced did so because of the \textit{low valuation}, 
 \paragraph{Active vs Passive Buyers}
 Interestingly, the two reasons with the highest scores are part of the same component with opposite sign. Hence, respondents were either active or passive buyers. To dig deeper, I group everyone who reported a \textit{savings plan} was an above average reason as \textit{passive buyer}, while grouping everyone who does the same with \textit{low valuation} and is not a passive buyer, as \textit{active}. Around 64\% account as passive, 30\% as active and a remainder of 6\% is neither.
 
+\textbf{Add discussion on 401K and savingsplans in Germany}
 %Passive buyers: 287 $\rightarrow$ 64\%
 %Active buyers: 137 $\rightarrow$ 30 \%
 %Neither: 30 $\rightarrow$ 6\%
@@ -544,27 +550,25 @@ The remaining columns capture quantitative statements. Here, respondents were as
 % Rationalizing
 These findings suggest a crowding out effect. For owners this could mean that they want to invest more into housing and hence have less savings for other liquid assets. Alternatively, if one asset category is expect to realize high gains, there is no need to also increase investments in other categories. Lastly, higher expected houseprices could also lead to an increase in houseprice risk if the household perceives it as a bubble. Therefore, to reduce houseprice risk exposure, no additional stock market risk is wanted.
 
-For renters, there is no wealth effect. As the magnitude is similar as for owners, we can rule out a wealth effect also for home owner. Here, the effect might have a different reason. One possibility is that if renters expect rents to increase, they might expect higher rent paxments for themselves in the future which leads to lower investments. Alternatively, if we see renters as a transition towards buyers, higher expected house prices could mean they want to buy sooner. Assuming that for the downpayment financial assets are going to be liquidated, the household could start to reduce risk of stockmarket volatility and liquidate early.
+For renters, there is no wealth effect. As the magnitude is similar as for owners, we can rule out a wealth effect also for home owner. Here, the effect might have a different reason. One possibility is that if renters expect rents to increase, they might expect higher rent payments for themselves in the future which leads to lower investments. Alternatively, if we see renters as a transition towards buyers, higher expected house prices could mean they want to buy sooner. Assuming that for the downpayment financial assets are going to be liquidated, the household could start to reduce risk of stockmarket volatility and liquidate early.
 
+\textbf{Things I did, but didn't add much value}
+To understand the underyling reasoning of households, multiple channels are possible.
+a) crowding out
+b) Houseprice risk
+c) Investment into real estate
 
+Findings:
+1. If spending less on housing:  --> less likely to buy --> only true for active buyers
+2. net wealth --> more likely to buy
+3. renting and owning --> no effect
 
+For owner: crowding out effect: more investing in housing, less in other assets
+Not a wealth effect: eg higher wealth, more investing as renters do the same
 
-%To understand the underyling reasoning of households, multiple channels are possible.
-%a) crowding out
-%b) Houseprice risk
-%c) Investment into real estate
-
-%Findings:
-%1. If spending less on housing:  --> less likely to buy --> only true for active buyers
-%2. net wealth --> more likely to buy
-%3. renting and owning --> no effect
-
-%For owner: crowding out effect: more investing in housing, less in other assets
-%Not a wealth effect: eg higher wealth, more investing as renters do the same
-
-%For renter: 
-%a) rent prices increase: more consumption in the future
-%b) want to buy sooner and reduce risk of stockmarket volatility
+For renter: 
+a) rent prices increase: more consumption in the future
+b) want to buy sooner and reduce risk of stockmarket volatility
 
 \paragraph{Buying financial assets and inflation expectations}
 The second relationship connects expected inflation with the probability to buy financial assets. %Previous literature shows that higher inflation can have a short-term negative impact on stock prices, but a possible positive ling term effect (eg \cite{anari_kolari_2001inflation}). Possible explanations of this relationship are that inflation or the response of central banks reduces the profitability if companies, an increase in risk which investors might not like, or failure of nominal price adjustments \cite{modigliani_cohn1979inflation}.\footnote{See \cite{campbell_vuolteenaho_2004inflation} for a discussion and empirical evidence for the latter reason.}
@@ -607,10 +611,14 @@ This exercise showed a robust relationship between higher inflation expectations
 \section{Robustness}\label{sec:robustness}
 TBD
 
+\section{Extension}
+
+
 \section{Discussion}\label{sec:discussion}
 \paragraph{Limitation}
 \begin{enumerate}
 	\item Random person from household. Doesn't have to be the head
+	\item For non-adjustment: don't know if they had a savingsplan before and intermitted
 \end{enumerate}
 
 \onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}

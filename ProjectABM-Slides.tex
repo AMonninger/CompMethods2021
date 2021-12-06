@@ -80,10 +80,12 @@
 \section{Introduction}
 \begin{frame}[label = motivation_2]
 	\frametitle{Motivation: Stock market turbulence due to Covid-19}
-	\begin{figure}
-		\centering
-		\includegraphics[height=6cm ]{\FigDir/dax.png}
-	\end{figure}
+%	\begin{figure}
+%		\centering
+%		\includegraphics[height=6cm ]{\FigDir/dax.png}
+%	\end{figure}
+	\include{\FigDir/dax}
+	\vspace{-1em}
 	\hyperlink{sp500}{\beamerbutton{S \&P 500}}
 	\hyperlink{eurostoxx50}{\beamerbutton{Eurostoxx 50}}
 \end{frame}
@@ -622,6 +624,19 @@
 	\end{block}
 \end{frame}
 
+\begin{frame}
+	\frametitle{Expectations and Buyer}
+	Here is a equation:
+	I run probit regressions of the form:
+%	\begin{verbatimwrite}{\EqDir/Prob_regression_expec}
+%		\begin{align}
+%			y_i = \beta X + \gamma Z + \epsilon  \label{eq:Prob_reg_expec}
+%		\end{align}
+%	\end{verbatimwrite}
+	\input{\EqDir/Prob_regression_expec}
+\end{frame}
+
+
 \begin{frame}[label = regression_bought_expec_pp]
 	\frametitle{House Price Expectations and Buyer}
 	\vspace{-1em}
@@ -798,19 +813,23 @@
 
 \begin{frame}[label = sp500, noframenumbering]
 	\frametitle{Motivation (2): Stock market turbulence due to Covid-19}
-	\begin{figure}
-		\centering
-		\includegraphics[height=6cm ]{\FigDir/sp500.png}
-	\end{figure}
+	%\begin{figure}
+	%	\centering
+	%	\includegraphics[height=6cm ]{\FigDir/sp500.png}
+	%\end{figure}
+	\include{\FigDir/sp500}
+	\vspace{-1em}
 	\hyperlink{motivation_2}{\beamerbutton{back}}
 \end{frame}
 
 \begin{frame}[label = eurostoxx50, noframenumbering]
 	\frametitle{Motivation (2): Stock market turbulence due to Covid-19}
-	\begin{figure}
-		\centering
-		\includegraphics[height=6cm ]{\FigDir/eurostoxx50.png}
-	\end{figure}
+	%\begin{figure}
+	%	\centering
+	%	\includegraphics[height=6cm ]{\FigDir/eurostoxx50.png}
+	%\end{figure}
+	\include{\FigDir/eurostoxx50}
+	\vspace{-1em}
 	\hyperlink{motivation_2}{\beamerbutton{back}}
 \end{frame}
 

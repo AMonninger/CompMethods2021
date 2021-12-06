@@ -7,43 +7,20 @@ scriptDir="$(dirname "$0")"
 
 # Boolean for User: Adrian or not. If Adrian: Can update table inputs. If not: no access to shared folder
 
-# Copy tables from shared folder  into tables  directory
-#cd /media/sf_VirtualBox/output/table
-#for tables in /media/sf_VirtualBox/output/table/*.tex; do
-#    echo "Copying tables from Shared folder into Table directory"
-#    cp -R $tables TableDir
-    #mv -!f /media/sf_VirtualBox/output/table/$tables Tabledir
-    #cp \SharedFolder/table/*. TableDir/
-    #cp -R . TableDir/
-#done
 read -r -p "Do you have permission to shared folder in VirtualBox? [y/n]" input
 
 case $input in
     [yY][eE][sS]|[yY])
-    echo "Copying tables from Shared folder into Table directory"
+    echo "Copying tables and graphs from Shared folder into Table and Figures directory"
     cp -R /media/sf_VirtualBox/output/table/. Tables
+    cp -R /media/sf_VirtualBox/output/graph/. Figures
     ;;
     [nN][oO]|[nN])
-    echo "Tables won't be updated"
+    echo "Tables and graphs won't be updated"
     ;;
     esac
     
 
-#echo "Do you have permission to shared folder in VirtualBox?"
-#select yn in "Yes" "No"
-#	     case $yn in
-#		 Yes ) echo "Copying tables from Shared folder into Table directory"
-#		       cp -R /media/sf_VirtualBox/output/table/*.tex Tabledir;;
-#		 No ) echo "Tables won't be updated";;
-#		 esac
-#done
-		   
-		   
-
-
-# back to this directory
-#cd "$scriptDir/.."
-#cd /home/econ-ark/GitHub/AMonninger/CompMethods2021-MonningerAB
 echo '' ; echo 'Reproduce text of paper:' ; echo ''
 
 texname=ProjectABM
