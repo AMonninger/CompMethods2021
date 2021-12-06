@@ -7,7 +7,6 @@ $pdf_mode = 1;
 $out_dir = '.';
 $rc_report = 1;
 $pdflatex="pdflatex -interaction=nonstopmode %O %S";
-@default_files = ('Inequalities-numer_tikzMake.tex','Inequalities_tikzMake.tex','InequalityPFGICFHWCRIC_tikzMake.tex','RelatePFGICFHWCRICPFFVAC_tikzMake.tex');
 $aux_out_dir_report = 1;
 $silent  = 0;
 warn "PATH = '$ENV{PATH}'\n";
