@@ -2,6 +2,15 @@
 # Reproduce results then text of the paper 
 scriptDir="$(dirname "$0")"
 
+# Change the right to write on files. Otherwise the user might get error messages
+sudo chmod +rwx *.*
+sudo chmod +rwx .
+sudo chmod +rwx \.*
+
+sudo chown -Rf econ-ark:econ-ark *.*
+sudo chown -Rf econ-ark:econ-ark .
+sudo chown -Rf econ-ark:econ-ark \.*
+
 # Regenerate computed results (figs) needed for compiling paper
 #./reproduce/computed.sh
 
