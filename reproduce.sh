@@ -88,7 +88,9 @@ while read appendixName; do
 	eval "$cmd" 
     fi
     eval "$cmd"
-    mv "$output_directory/$filename.pdf" Appendices
+    cmd="mv "$output_directory/$filename.pdf" Appendices"
+    echo "$cmd"
+    eval "$cmd"
 done < /tmp/appendices
 
 [[ -e "$texname".pdf ]] && rm -f "$texname".pdf
