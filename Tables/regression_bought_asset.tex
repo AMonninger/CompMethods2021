@@ -1,20 +1,17 @@
-\begin{table}[]
+\begin{table}[ht!]
 	\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Regression Table: Has bought by asset type (Probit) \label{tab:reg_bought_assets}}
-	\resizebox{0.6\textwidth}{!}{%
+	\resizebox{\textwidth}{!}{%
 		\begin{threeparttable}
-			\begin{tabular}{l*{4}{c}}
+			\begin{tabular}{p{3cm}p{1cm}C{3cm}p{1cm}C{3cm}p{1cm}C{3cm}p{1cm}C{3cm}}%{l*{8}{c}} %p{3cm}p{1cm}C[3cm] p{3cm}C[3cm] p{1cm}C[3cm] p{1cm}C[3cm] }
 				\hline\hline
 				\input{\TableDir/regression_bought_asset_input.tex}
 				\hline\hline
 			\end{tabular}
 			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Has asset type.
-				\item[] Additional controls are income, age, children, labor status
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+				\item[] Probit model with has bought asset type as dependent variable on demographics and portfolio prior to the covid-19 pandemic. Additional controls are: college, labor status, kurzarbeit, has children, income, cohort, and financial literacy.
+				\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
 			\end{tablenotes}
 		\end{threeparttable}
 	}

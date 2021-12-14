@@ -1,19 +1,16 @@
-\begin{table}[]
+\begin{table}[ht!] \centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Regression Table: Reason bought and Demographics \label{tab:reg_bought_dem}}
 	\resizebox{\textwidth}{!}{%
 		\begin{threeparttable}
-			\begin{tabular}{l*{16}{c}}%{l*{8}{c}}
+			\begin{tabular}{l*{16}{c}}
 				\hline\hline
 				\input{\TableDir/regression_bought_dem_input.tex}
 				\hline\hline
 			\end{tabular}
 			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Reason bought (standardized).
-				\item[] Additional controls are labor status, gender, children, home ownership
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+				\item[] OLS model with standardized version of reason as dependent variable on demographics.
+				\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
 			\end{tablenotes}
 		\end{threeparttable}
 	}

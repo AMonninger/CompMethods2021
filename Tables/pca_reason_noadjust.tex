@@ -1,9 +1,10 @@
-\begin{table}[]
+\begin{table}[ht!]
+	\centering
 	\caption{ Principal Component Analysis: No Adjustment}
 	\label{tab:pca_reason_noadjust}
 	\resizebox{\textwidth}{!}{%
 		\begin{threeparttable}
-			\begin{tabular}{llcll}
+			\begin{tabular}{p{3cm}p{3cm}p{1cm}p{3cm}p{3cm}}
 				\hline
 				\multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   1\\ bad timing\end{tabular}} &  & \multicolumn{2}{c}{\begin{tabular}[c]{@{}c@{}}Comp   2\\ time constraint \end{tabular}} \\ \cline{1-2} \cline{4-5} 
 				& \multicolumn{1}{c}{} &  &  & \multicolumn{1}{c}{} \\
@@ -13,7 +14,7 @@
 				&  &  &  &  \\  \hline \hline
 			\end{tabular}
 			\begin{tablenotes}\footnotesize
-				\item[] Notes
+				\item[] Principal component analysis of all factors from table \ref{tab:reason_noadjust}. I use for each variable an indicator if the reason ranks above their own average and varimax rotation (no or promax rotation give similar results). Loadings above 0.32 are shown.
 			\end{tablenotes}
 		\end{threeparttable}
 	}

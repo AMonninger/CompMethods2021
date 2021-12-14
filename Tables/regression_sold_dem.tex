@@ -1,4 +1,4 @@
-\begin{table}[htbp]\centering
+\begin{table}[ht!]\centering %[htbp]
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Regression Table: Reason sold and Demographics \label{tab:reg_sold_dem}}
 	\resizebox{\textwidth}{!}{%
@@ -9,11 +9,8 @@
 				\hline\hline
 			\end{tabular}
 			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Reason sold (standardized).
-				\item[] Additional controls are income, age, labor status, gender, home ownership
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+				\item[] OLS model with standardized version of reason as dependent variable on demographics.
+				\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
 			\end{tablenotes}
 		\end{threeparttable}
 	}

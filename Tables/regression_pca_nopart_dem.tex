@@ -1,0 +1,17 @@
+\begin{table}[ht!] \centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Regression Table: Principal Component of Reason No Participation and Demographics \label{tab:reg_pca_nopart_dem}}
+	\resizebox{\textwidth}{!}{%
+		\begin{threeparttable}
+			\begin{tabular}{L{4cm}p{1cm}C{3cm}p{1cm}C{3cm}p{1cm}C{3cm}}%{l*{6}c}
+				\hline\hline
+				\input{\TableDir/regression_pca_nopart_dem_input.tex}
+				\hline\hline
+			\end{tabular}
+			\begin{tablenotes}\footnotesize
+				\item[] OLS model with principal component as dependent variable on demographics. Additional controls are: college, gender, has children, home owner, financial literacy, labor status, and kurzarbeit.
+				\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+			\end{tablenotes}
+		\end{threeparttable}
+	}
+\end{table}

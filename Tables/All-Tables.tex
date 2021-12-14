@@ -3,18 +3,32 @@
 \input{./econtexRoot}\input{\LaTeXInputs/econtex_onlyinsubfile}
 %\onlyinsubfile{\externaldocument{\LaTeXGenerated/ProjectABM}}
 
+% Added: For tables
+%This workaround in the preamble solves the problem. You can simply use C{width} for centered entries. Replace C with L or R if raggedright or raggedleft is favoured.
+
+%\usepackage{array}
+%\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+%\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+%\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+%\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+
+
 \begin{document}
-\input{\TableDir/summary_types}
+%\input{\TableDir/summary_types}
 \input{\TableDir/summary_types_weighted}
 \input{\TableDir/summary_types_dem}
 \input{\TableDir/regression_types_dem}
 
 \input{\TableDir/reason_nopart}
 \input{\TableDir/pca_reason_nopart}
-\input{\TableDir/reg_pca_nopart_dem}
+\input{\TableDir/regression_pca_nopart_dem}
+\input{\TableDir/regression_pca_nopart_dem_ctrl}
+\input{\TableDir/regression_nopart_dem}
 
 \input{\TableDir/reason_noadjust}
 \input{\TableDir/pca_reason_noadjust}
+\input{\TableDir/regression_noadjust_dem}
 
 \input{\TableDir/reason_bought}
 \input{\TableDir/regression_bought_dem}
@@ -33,7 +47,12 @@
 \input{\TableDir/regression_bought_expec_inflation_cond}
 \input{\TableDir/regression_expec_inflation}
 
+%Robustness Section
+\input{\TableDir/regression_pca_nopart_dem_experience_ctrl}
+\input{\TableDir/regression_nopart_dem_experience}
 
+\input{\TableDir/regression_pca_nopart_dem_robust_ctrl}
+\input{\TableDir/regression_bought_expec_infl_robust}
 %\input{\TableDir/Parameters}
 %\input{\TableDir/Calibration}
 %\input{\TableDir/Comparison}

@@ -1,4 +1,5 @@
-\begin{table}[]
+\begin{table}[ht!]
+	\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Regression Table: Active vs Passive buyers (Probit) \label{tab:reg_bought_active_passive}}
 	\resizebox{\textwidth}{!}{%
@@ -9,11 +10,8 @@
 				\hline\hline
 			\end{tabular}
 			\begin{tablenotes}\footnotesize
-				\item[] Standard errors in parentheses
-				\item[] Dependent variable: Active or Passive buyer.
-				\item[] Additional controls are education, labor status, gender, children
-				\item[] Data source: BOP Wave 8
-				\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+				\item[] Probit model with active (no savingsplan, but expects rising stock market) or passive (has savingsplan) as dependent variable on demographics and other reasons. Additional controls are: college, gender, labor status, kurzarbeit, has children, and income.
+				\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
 			\end{tablenotes}
 		\end{threeparttable}
 	}

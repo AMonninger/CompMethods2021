@@ -76,3 +76,14 @@
 \providecommand{\IncUnemp}{\mu}
 \providecommand{\usual}{}
 
+% Added: For tables
+%This workaround in the preamble solves the problem. You can simply use C{width} for centered entries. Replace C with L or R if raggedright or raggedleft is favoured.
+
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+\usepackage{lmodern, textcomp}
+\usepackage{eurosym}

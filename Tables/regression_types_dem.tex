@@ -1,18 +1,17 @@
-\begin{table}[htbp]\centering
+\begin{table}[ht!]\centering
 	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 	\caption{Regression Table: Types and Demographics \label{tab:regression_types_dem}}
+		\resizebox{\textwidth}{!}{%
 	\begin{threeparttable}
-	\begin{tabular}{l*{4}{c}}
+	\begin{tabular}{L{3cm}p{1cm}C{2.5cm}p{1cm}C{2.5cm}p{1cm}C{2.5cm}p{1cm}C{2.5cm}}%{l*{4}{c}}
 		\hline
 		\input{\TableDir/regression_types_dem_input.tex}
 		\hline\hline
 	\end{tabular}
 	\begin{tablenotes}\footnotesize
-		\item[] Standard errors in parentheses
-		\item[] Dependent variable: Type.
-		\item[] Data source: BOP Wave 8
-		\item[] \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+		\item[] Probit model with Type as dependent variable on demographics. Additional controls are: has children and kurzarbeit.
+		\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
 	\end{tablenotes}
 	\end{threeparttable}
-
+}
 \end{table}
