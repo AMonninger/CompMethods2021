@@ -2,15 +2,6 @@
 # Reproduce results then text of the paper 
 scriptDir="$(dirname "$0")"
 
-# Change the right to write on files. Otherwise the user might get error messages: DOES NOT CHANGE ANYTHING...
-#sudo chmod +rwx *.*
-#sudo chmod +rwx .
-#sudo chmod +rwx \.*
-
-#sudo chown -Rf econ-ark:econ-ark *.*
-#sudo chown -Rf econ-ark:econ-ark .
-#sudo chown -Rf econ-ark:econ-ark \.*
-
 # Regenerate computed results (figs) needed for compiling paper
 #./reproduce/computed.sh
 
@@ -38,9 +29,6 @@ output_directory='LaTeX'
 # Make figures that get made by executing a latex file
 # (they should have a filename ending in Make.tex)
 cd Figures
-# For this paper, only the tikz figures need to be made by pdflatex - others are made by python
-# Make tikz figure
-#cd Tikz
 for fName_tikzMake in *Make.tex; do # names of all files ending in Make.tex
     echo "Processing figure $fName_tikzMake"
     fName=${fName_tikzMake%_tikzMake.tex} # Remove the '_tikzMake.tex' part of the filename
@@ -50,14 +38,6 @@ for fName_tikzMake in *Make.tex; do # names of all files ending in Make.tex
     mv -f "../$output_directory/$fName.pdf" "$fName.pdf" #changed: added _tikzMake. Not sure if really necessary
 done
 
-#cd ..
-# Make other figures
-#for fName in *.tex; do
-#    echo "Processing figure $fName"
-#    cmd="pdflatex -halt-on-error --output-format pdf -output-directory=../$output_directory $fName_tikzMake"
-#    echo "$cmd"
-#    eval "$cmd"
-#done
 cd ..
 
 
