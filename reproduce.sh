@@ -2,8 +2,14 @@
 # Reproduce results then text of the paper 
 scriptDir="$(dirname "$0")"
 
+
 # Regenerate computed results (figs) needed for compiling paper
 #./reproduce/computed.sh
+
+echo '' ; echo 'Reproduce text of paper:' ; echo ''
+
+texname=ProjectABM
+output_directory='LaTeX'
 
 # Boolean for User: Adrian or not. If Adrian: Can update table inputs. If not: no access to shared folder
 
@@ -19,27 +25,32 @@ case $input in
     echo "Tables and graphs won't be updated"
     ;;
     esac
-    
-
-echo '' ; echo 'Reproduce text of paper:' ; echo ''
-
-texname=ProjectABM
-output_directory='LaTeX'
 
 # Make figures that get made by executing a latex file
 # (they should have a filename ending in Make.tex)
 cd Figures
+# For this paper, only the tikz figures need to be made by pdflatex - others are made by python
 for fName_tikzMake in *Make.tex; do # names of all files ending in Make.tex
     echo "Processing figure $fName_tikzMake"
     fName=${fName_tikzMake%_tikzMake.tex} # Remove the '_tikzMake.tex' part of the filename
     cmd="pdflatex -halt-on-error --output-format pdf -output-directory=../$output_directory $fName_tikzMake"
     echo "$cmd"
     eval "$cmd"
-    mv -f "../$output_directory/$fName.pdf" "$fName.pdf" #changed: added _tikzMake. Not sure if really necessary
+    mv -f                                                             "../$output_directory/$fName" "$fName.pdf"
 done
-
 cd ..
 
+# Compile LaTeX files in root directory
+for file in "$texname" "$texname"-NoAppendix "$texname"-Slides; do
+    echo '' ; echo "Compiling $file" ; echo ''
+    cmd="pdflatex -halt-on-error -output-directory=$output_directory $file"
+    eval "$cmd"
+    eval "$cmd" # Hide second output to reduce clutter
+    bibtex $output_directory/"$file"
+    eval "$cmd" # Hide third output to reduce clutter
+    eval "$cmd" 
+    echo '' ; echo "Compiled $file" ; echo ''
+done
 
 # Compile All-Figures and All-Tables
 for type in Figures Tables; do
@@ -67,26 +78,10 @@ while read appendixName; do
 	eval "$cmd" 
     fi
     eval "$cmd"
-    # cmd="mv "$output_directory/$filename.pdf" Appendices"
-   # mv "$output_directory/$filename.pdf" Appendices
-    echo "$cmd"
-    eval "$cmd"
+#    mv "$output_directory/$filename.pdf" Appendices
 done < /tmp/appendices
 
-
-# Compile LaTeX files in root directory
-for file in "$texname" "$texname"-NoAppendix "$texname"-Slides; do
-    echo '' ; echo "Compiling $file" ; echo ''
-    cmd="pdflatex -halt-on-error -output-directory=$output_directory $file"
-    eval "$cmd"
-    eval "$cmd" # Hide second output to reduce clutter
-    bibtex $output_directory/"$file"
-    eval "$cmd" # Hide third output to reduce clutter
-    eval "$cmd" 
-    echo '' ; echo "Compiled $file" ; echo ''
-done
-
-#[[ -e "$texname".pdf ]] && rm -f "$texname".pdf
+[[ -e "$texname".pdf ]] && rm -f "$texname".pdf
 
 echo '' 
 
@@ -97,3 +92,4 @@ else
 fi
 
 echo ''
+
