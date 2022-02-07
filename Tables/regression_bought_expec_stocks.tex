@@ -1,0 +1,17 @@
+\begin{table}[ht!]\centering
+	\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+	\caption{Regression Table: Has bought and Expectations of Stock Market Prices (Probit) \label{tab:reg_bought_expec_stocks}}
+	\resizebox{\textwidth}{!}{%
+		\begin{threeparttable}
+			\begin{tabular}{l*{8}{c}}
+				\hline\hline
+				\input{\TableDir/regression_bought_expec_stocks_input.tex}
+				\hline\hline
+			\end{tabular}
+			\begin{tablenotes}\footnotesize
+				\item[] Probit model with has financial assets bought as dependent variable on stock market expectations. Controls are college, gender, labor status, short-time work, has children, income, home ownership, cohort, and financial literacy.
+				\item[] Standard errors in parentheses. \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)
+			\end{tablenotes}
+		\end{threeparttable}
+	}
+\end{table}
