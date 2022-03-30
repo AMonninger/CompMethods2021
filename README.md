@@ -4,11 +4,11 @@ This directory contains code to reproduce figures and tables of the paper [Equit
 
 ## Code 
 
-Due to Data restrictions, figures and tables can only be produced locally with access to Data. 
+Due to Data restrictions, figures and tables can only be produced locally with access to Data. Nevertheless, stata codes for tables and python code for distribution estimations can be found in folder `Code`.
 
 ##### Reproduce the figures and compile the paper locally using `nbreproduce`
    1. Install [nbreproduce](https://github.com/econ-ark/nbreproduce)
-   2. Download this repository using `git clone https://github.com/econ-ark/BufferStockTheory` or a zip folder [using this link](https://github.com/econ-ark/BufferStockTheory/archive/master.zip).
+   2. Download this repository using `git clone https://github.com/AMonninger/CompMethods2021-MonningerAB` or a zip folder [using this link](https://github.com/AMonninger/CompMethods2021-MonningerAB/archive/master.zip).
    3. Execute `nbreproduce` from the command line.
 	  
 ## Paper
