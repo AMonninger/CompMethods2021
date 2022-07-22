@@ -831,6 +831,40 @@ In the end, the pandemic caused especially young households to invest in financi
 
 \section{Model}
 
+\begin{itemize}
+	\item Have testable hypotheses: If time plays a role $\rightarrow$ unemployment and retirement
+	\item Other data sets with similar information:
+	\begin{itemize}
+		\item SCE:
+		\item Michigan:
+		\item GSOEP: [SOEP](https://paneldata.org/search/all)
+		\item NLSY97: Education data: how and when did people start investing: Stocks vs housing?!
+	\end{itemize}
+	\item People in the field:
+	\begin{\itemize}
+		\item James Choi
+		\item Andrew Caplin
+	\end{\itemize}
+	\item Propose Model $\rightarrow$ find funding sources $\rightarrow$ Do research
+	\item What answers can simulated agents in model give us?
+	\begin{\itemize}
+		\item FIRE: age, wealth/savings, consumption, return, and variance for all periods
+		\item \cite{guiso_et_al_2008trusting}: Return = observed return + trust/distrust $\rightarrow$ Dispersion of returns by trust
+		\item \cite{malmendier_2011}: Return = function of age $\rightarrow$ Dispersion of returns by age
+		\item Mateo: Return = function of beliefs/education $\rightarrow$ Dispersion of returns by education and individuals
+		\item With Adjustment and Participation costs:
+	\end{\itemize}
+	\item What do I need?
+	\begin{\itemize}
+		\item Participation costs as a function of Information, Interest, Peers, Time
+		\item Adjustment costs as a function of Information, Peers, Time 
+	\end{\itemize}
+	\item Can I differentiate between active and passive buyers?!
+	\begin{\itemize}
+		\item Adjustment Costs by group: Adjustment costs of passive buyers occur when they change their savingsplan which I have no data about...
+	\end{\itemize}
+\end{itemize}
+
 \cite{choukhmane_default_2021}: She studies auto-enrolled retirement contribution schemes and finds that employees offset the short-run positive effect of auto-enrollment in retirement plans by saving less in the future. Her model contains an opt-out cost/adjustment cost of around \$250 every time an employee changes her contribution rate.
 She presents 3 stylized facts: a) increasing the default contribution rate reduces participation; b) the median cumulative contributions of non-auto-enrolled workers catch up to the cumulative contributions of the auto-enrolled over 3 years. Note: this does not hold for the bottom quarter of the income distribution; c) Current auto-enrollment reduces saving in the subsequent job, eg. previously auto-enrolled workers are less likely to contribute to the new plan in the new firm and there is no evidence of persistent behavior change.
 
@@ -843,14 +877,59 @@ The interesting part of this paper is the claim that households who give precise
 Unfortunately, he only has a labor model. But, in a previous paper (van der Klaauw and Wolpin, 2008) they estimate a structural model of retirement and saving decisions which exploits subjective expectations data on a large set of future events, including individuals’ expected date of retirement, expected social security benefits, and self-reported longevity and bequest expectations.
 
 \cite{ACL2007_retirement}: They compare the standard lifecycle model where agents know exactly what retirement wealth to expect with a model that contains ‘unexpected information’ which means agents get surprised with how little consumption they can actually afford. For this, they use survey data where households provide estimates how much their consumption will fall after retirement. They find that most is anticipated -with some heterogeneity of course. 
-	
+
+\subsection{Model 1: FIRE model with explicitly calibrated participation and adjustment costs}
 \begin{enumerate}
 	\item Given Time preference rate, CRRA, return, and volatility: what are the combinations of participation and adjustment costs to match the data?
 	\item Using my evidence and making participation and adjustment costs heterogeneous: Which dollar value has each part?
 	\item Make use of the fact that adjustment costs are a subset of participation costs.
+	\item Split up adjustment costs between active and passive households!
 \end{enumerate}
 
+\textbf{Additionally with passive AND active households?!}
 
+\subsection{Model 2: Switching between non-participants, active and passive buyers}
+Stereotypes:
+\begin{itemize}
+	\item Non-participants
+	\begin{itemize}
+		\item Poorer (income and wealth)
+		\item Lower educated
+		\item Less financially educated
+		\item More women
+	\end{itemize}
+	\item Active
+	\begin{itemize}
+		\item Richer
+		\item Younger
+		\item Male
+		\item Strong optimistic expectations
+		\item Rebalancing as well
+		\item Presumably: Very interested in it
+	\end{itemize}
+	\item Passive
+	\begin{itemize}
+		\item Presumably: Less interested
+	\end{itemize}
+\end{itemize}
+
+When do they switch? 
+\begin{itemize}
+	\item Very strong expectations
+	\item Information treatment?
+	\item Active are more sensitive: eg their elasticity is high
+\end{itemize}
+
+What do I need for that?
+\begin{itemize}
+	\item History: Only active/passive or both?
+	\item When switching
+	\item Why switching
+\end{itemize}
+
+
+\subsection{Model 3: Only Pandemic}
+As I have unique data about behavior during covid. Let's focus only on that!
 
 \onlyinsubfile{\input{\LaTeXInputs/bibliography_blend}}
 %\bibliography{ProjectABM}

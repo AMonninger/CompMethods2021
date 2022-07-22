@@ -1,0 +1,221 @@
+\input{./econtexRoot}\documentclass[pdflatex]{beamer}
+\providecommand{\texname}{ProjectABM-Slides}% Indicate the keyname for the bibtex entry corresponding to this document
+\providecommand{\texnameMaster}{ProjectABM}% Indicate the keyname for the bibtex entry corresponding to this document
+\newif\ifdvi\dvifalse
+
+%\usepackage{optional}
+%\usepackage{ifthen}%\usepackage{\econtexRoot/BufferStockTeory}
+
+% Can't read in ProjectABM.sty because some packages conflict with Beamer
+% So need to redefine everything here
+
+\usepackage{\econtexShortcuts}
+\usepackage{natbib,amsmath,amssymb,rotating,subfigure}
+\usepackage{verbatim,moreverb,graphicx}
+\usepackage{wasysym}
+\usepackage{dcolumn}
+\usepackage{cancel}
+%\providecommand{\LtxDir\EqDir}{\econtexRoot/Equations}
+%\providecommand{\FigsRaw}{\econtexRoot/Code/Python/Figures}
+%\providecommand{\CodeDir}{\econtexRoot/Code}
+%\providecommand{\CalibrationDir}{\econtexRoot/Calibration}
+\providecommand{\TableDir}{\econtexRoot/Tables}
+%\providecommand{\ApndxDir}{\econtexRoot/Appendices}
+%\providecommand{\Ex}{\mathbb{E}}
+
+% additional packages: ABM
+\usepackage{threeparttable}
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+
+%\usepackage{natbib}\newcommand*{\newblock}{}
+
+%\mode<presentation>
+%{
+	%  \usetheme{Warsaw}
+	%  % or ...
+	%  \setbeamercovered{transparent}
+	%}
+
+\mode<presentation>
+{
+	\usetheme{CambridgeUS}      % or try Darmstadt, Madrid, Warsaw, ...
+	\usecolortheme{default} % or try albatross, beaver, crane, ...
+	\usefonttheme{default}  % or try serif, structurebold, ...
+	\setbeamertemplate{navigation symbols}{}
+	\mode<beamer>{\setbeamertemplate{blocks}[rounded][shadow=true]}
+	\setbeamertemplate{caption}[numbered]
+	\useoutertheme{infolines}
+	\useoutertheme[subsection=false]{miniframes}
+} 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+%\setbeamertemplate{navigation symbols}{}  % Take away navigation symbols
+
+%\usetheme{Warsaw}
+
+%\setbeamersize{text margin left=3mm}
+%\setbeamersize{text margin right=3mm}
+
+%_____________ Opening slide _______________________
+
+%\title[Buffer Stock Theory]{Theoretical Foundations of Buffer Stock Saving}
+%\author[Carroll]{Chris Carroll}
+%\institute[JHU]{Johns Hopkins University}
+%\date[\today]{September 12, 2019  \\ \medskip \medskip \medskip \href{https://econ-ark.org/}{\small Powered By} \\ \includegraphics[width=0.5in]{\econtexRoot/Resources/econ-ark-logo-small.png}}
+\title[EPP, Expectations and Covid-19] {Equity Premium Puzzle, Expectations and Covid-19:\\ Evidence from Germany}
+\subtitle{ \vspace{0.25em} \textit{-- Next Steps --} }
+\author[A. Monninger]{Adrian Monninger\inst{1}}
+\institute[]{\inst{1} Johns Hopkins University}
+\date{July 11th, 2022}
+
+\begin{document}
+	\bibliographystyle{\econtexBibStyle}
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+\section{Main findings}
+\begin{frame}
+	\frametitle{My 2nd year paper showed that:}
+	\begin{itemize}
+		\item Lack of interest/ information very important, but not at heart of our models. Other \textit{softfactors as well}. I can measure the (relative) importance
+		\item Active vs Passive vs Non-participants vs Non-adjuster. Especially active vs passive buyers has been overlooked. How stable is each type?
+		\item Young, wealthy invested: Expectations and time important. Covid related?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Next steps}
+	2 Ways forward:
+	\begin{enumerate}
+		\item FIRE Model: Explicitly calibrating returns, participation, and adjustment costs
+		\item Switcher Model: Switching between non-participants, active and passive buyers
+%		\item Covid Model: Focusing on pandemic effects
+	\end{enumerate}
+\end{frame}
+
+\section{FIRE Model}
+\begin{frame}
+	\frametitle{Agents in a FIRE model \textit{'know'} the following}
+	\begin{itemize}
+		\item Individual parameters:
+		\begin{itemize}
+			\item CRRA
+			\item Discount Factor
+			\item Income dynamics
+		\end{itemize}
+		\item Aggregate parameters:
+		\begin{itemize}
+			\item Return and Volatility
+			\item Riskfree rate (alternative)
+			\item Participation and adjustment costs (if added)
+		\end{itemize}
+		\item Complete history of returns, volatility, income realizations
+		\item All choices: eg consumption and wealth paths	
+		\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What have other models added? RETURNS}
+	\begin{itemize}
+		\item \cite{GSZ2008_TrustingStockMarketb}:\\
+		Return = observed return + trust/distrust $\rightarrow$ Dispersion of returns by trust
+		\item \cite{MN2011_DepressionBabiesMacroeconomic}: \\
+		Return = function of age $\rightarrow$ Dispersion of returns by cohort
+		\item Mateo:\\
+		 Return = function of beliefs/education $\rightarrow$ Dispersion of returns by education and individuals
+		\item \cite{ACGH2022_InformativeSocialInteractionsa}: \\
+		Return = function of peers $\rightarrow$ Dispersion of returns by network
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{What have other models added? Costs}
+	\begin{itemize}
+		\item \cite{V2002_ExplanationHouseholdPortfolio}: Per period stock market participation cost, fixed cost of trading, variable cost of trading stock
+	\end{itemize}
+	Additional factors:
+	\begin{itemize}
+		\item Information eg Awareness: \cite{GJ2005_AwarenessStockMarket}
+		\item Financial literacy: \cite{vLA2011_FinancialLiteracyStocka}
+		\item Participating peers: \cite{BISW2008_NeighborsMatterCausal}
+		\item Not interested eg Disliking thinking about it: \cite{SB2012_MeasuringFinancialAnxietyb}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{What can I add?}
+	\begin{itemize}
+		\item Put them all together. Finding a functional form for returns, participation, and adjustment costs
+		\item Return(beliefs, trust, peers, experience)
+		\item Participation cost(Information, Literacy, Peers, Interest, Time)
+		\item Adjustment costs(Peers, Time, Income)
+		\item Calibrate total cost and value of each component
+		\item Make counterfactual: aka let's shock something
+	\end{itemize}
+\end{frame}
+
+\section{Switcher Model}
+\begin{frame}
+	\frametitle{What makes agents switch types?}
+	\begin{itemize}
+		\item Types: non-participants vs non-adjuster vs active vs passive buyer
+		\item We know demographics and reasons for each group
+		\item BUT: How stable is each group? How frequent to agents switch?
+		\item Participation to non-participation: 20\% drop out in 2 year period (\cite{B2021_HouseholdStockMarket})
+		\item 25\% Adjust in 2 year period (\cite{BCZ2012_ConsumptionSmoothingPortfolio})
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Data I would need for this}
+	Problem with existing data: 
+	\begin{itemize}
+		\item Frequency: SCF is biannual
+		\item Change in market value does not mean people adjusted the portfolio
+	\end{itemize}
+\vspace{2em}
+	What do I need?
+	\begin{itemize}
+		\item High frequency data: Create a high frequency panel and follow each over a year?
+		\item Retrospective: Ask agents when and why they bought. Eg retrieve a history by questionnaire
+	\end{itemize}
+\end{frame}
+
+%\section{Covid Model}
+%\begin{frame}
+%	\frametitle{I have pandemic specific data, why not just use that?}
+%	\begin{itemize}
+%		\item Pandemic vs Crisis: Covid had different impact than a 'normal crisis'
+%		\begin{itemize}
+%			\item Time: people got bored
+%			\item Return expectation: optimists (will last 3 weeks) vs pessimists (world will end)
+%			\item Trust: no-none is to blame compared to GFC 
+%			\item Social contact: Less office chat, but more crypto bros
+%		\end{itemize} 
+%	\end{itemize}
+%\end{frame}
+
+\section{Conclusion}
+\begin{frame}
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{cllll}
+			&  & \multicolumn{1}{c}{\textbf{Pros}} &  & \multicolumn{1}{c}{\textbf{Cons}} \\ \hline
+			\multicolumn{1}{l}{} &  &  &  &  \\
+			\textbf{\begin{tabular}[c]{@{}c@{}}FIRE \\ Model\end{tabular}} &  & \begin{tabular}[c]{@{}l@{}}+ Close to litereature\\ + Combining already existing models \\ makes start easier\\ + Comparison of factors\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}- Limited data to actually calibrate\\ - Finding the 'right model' is hard\end{tabular} \\
+			&  &  &  &  \\
+			\textbf{\begin{tabular}[c]{@{}c@{}}Switcher \\ Model\end{tabular}} &  & \begin{tabular}[c]{@{}l@{}}+ Interesting gap in the litereature\\ + Cool model implications\\ + Could get help from Yujung Hwang\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}- Very time intensive and costly to conduct\\ interview\\ - Retrospective is biased, but panel is costly\end{tabular} \\
+%			&  &  &  &  \\
+%			\textbf{\begin{tabular}[c]{@{}c@{}}Covid \\ Model\end{tabular}} &  & \begin{tabular}[c]{@{}l@{}}+ Unique data for that\\ + Low hanging fruit\end{tabular} &  & \begin{tabular}[c]{@{}l@{}}- Hard to convince people\\ - Can easily go wrong\end{tabular} \\
+			&  &  &  & 
+		\end{tabular}%
+	}
+\end{table}
+\end{frame}
+\bibliography{ProjectABM}
+\end{document}\endinput
